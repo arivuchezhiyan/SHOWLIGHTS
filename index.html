@@ -176,9 +176,17 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 .back-glitter::before{content:'';position:absolute;width:2px;height:2px;background:rgba(255,215,0,0.8);border-radius:50%;box-shadow:25px 20px 0 rgba(255,215,0,0.7),70px 60px 0 rgba(255,255,255,0.5),110px 30px 0 rgba(255,215,0,0.6),150px 90px 0 rgba(255,255,255,0.4),190px 50px 0 rgba(255,215,0,0.7),230px 120px 0 rgba(255,255,255,0.5),265px 80px 0 rgba(255,215,0,0.6),285px 150px 0 rgba(255,255,255,0.5),45px 190px 0 rgba(255,215,0,0.4),115px 250px 0 rgba(255,255,255,0.5),195px 290px 0 rgba(255,215,0,0.6),245px 340px 0 rgba(255,255,255,0.5),275px 380px 0 rgba(255,215,0,0.7);animation:glitterAnim 2.5s ease-in-out infinite alternate;}
 
 /* ===== WHY CHOOSE ===== */
-#why{height:100vh;display:flex;align-items:center;justify-content:center;background:var(--bg-surface);padding:0;}
-#why .section-header{margin-bottom:0;}
+#why{background:var(--bg-surface);padding:60px 0;}
 #why .container{width:100%;}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:40px;}
+.why-card{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:var(--radius-md);padding:36px 28px;transition:var(--transition);position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;text-align:center;justify-content:center;min-height:180px;}
+.why-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(212,175,55,0.05) 0%,transparent 70%);pointer-events:none;}
+.why-card:hover{transform:translateY(-8px);border-color:rgba(212,175,55,0.4);box-shadow:0 20px 60px rgba(212,175,55,0.1);}
+.why-icon{width:52px;height:52px;border-radius:50%;border:1px solid var(--accent);display:flex;align-items:center;justify-content:center;margin-bottom:16px;background:rgba(212,175,55,0.08);transition:var(--transition);}
+.why-card:hover .why-icon{background:var(--accent);color:#0A0A0A;}
+.why-icon i{font-size:20px;color:var(--accent);transition:var(--transition);}
+.why-card:hover .why-icon i{color:#0A0A0A;}
+.why-card h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:var(--text-primary);margin-bottom:0;}
 
 /* ===== TESTIMONIALS ===== */
 #testimonials{padding:60px 0;background:linear-gradient(180deg,#0d0b06 0%,var(--bg-primary) 100%);}
@@ -227,7 +235,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 
 /* ===== FOOTER ===== */
 #footer{background:var(--bg-primary);border-top:1px solid var(--border-subtle);padding:40px 0 0;}
-.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:60px;margin-bottom:60px;}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1.2fr;gap:60px;margin-bottom:60px;}
 .footer-logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--accent);margin-bottom:16px;}
 .footer-tagline{font-size:14px;color:var(--text-muted);line-height:1.7;margin-bottom:24px;}
 .footer-socials{display:flex;gap:12px;}
@@ -239,13 +247,10 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 .footer-col ul li a:hover{color:var(--accent);}
 .footer-contact-item{display:flex;gap:10px;align-items:flex-start;margin-bottom:12px;font-size:13px;color:var(--text-muted);}
 .footer-contact-item i{color:var(--accent);margin-top:2px;flex-shrink:0;}
-.footer-bottom{border-top:1px solid var(--border-subtle);padding:20px 0;display:flex;align-items:center;justify-content:center;background:var(--accent);}
-.footer-bottom p{font-size:12px;font-weight:700;letter-spacing:0.08em;color:#0A0A0A;}
+.footer-bottom{border-top:1px solid var(--border-subtle);padding:20px 0;background:transparent;}
+.footer-bottom .container{display:flex;justify-content:center;}
+.footer-bottom p{font-size:14px;font-weight:500;letter-spacing:0.08em;color:#ffffff;margin:0;}
 
-/* ===== BACK TO TOP ===== */
-#back-top{position:fixed;bottom:32px;right:32px;z-index:800;width:48px;height:48px;background:var(--accent);border-radius:50%;display:none;align-items:center;justify-content:center;color:#0A0A0A;font-size:20px;box-shadow:0 4px 20px var(--accent-glow);transition:var(--transition);}
-#back-top.show{display:flex;}
-#back-top:hover{background:var(--accent-bright);transform:translateY(-3px);}
 
 /* ===== ANIMATIONS ===== */
 @keyframes glimmer{0%{background-position:200% center;}100%{background-position:-200% center;}}
@@ -350,7 +355,6 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 <div class="form-success" id="form-success"><h3>✅ Enquiry Received!</h3><p id="success-msg"></p><button class="btn-primary" id="reset-form" style="margin:0 auto;">Submit Another Enquiry</button></div>
 <form id="enquiry-form" novalidate>
 <div class="form-group"><label for="f-name">Full Name</label><input type="text" id="f-name" placeholder="Your full name"/><span class="field-error" id="err-name"></span><span class="field-ok" id="ok-name">✓ Looks good</span></div>
-<div class="form-group"><label for="f-email">Email Address</label><input type="email" id="f-email" placeholder="your@email.com"/><span class="field-error" id="err-email"></span><span class="field-ok" id="ok-email">✓ Valid email</span></div>
 <div class="form-group"><label for="f-phone">Phone Number</label><input type="tel" id="f-phone" placeholder="10-digit mobile number"/><span class="field-error" id="err-phone"></span><span class="field-ok" id="ok-phone">✓ Valid number</span></div>
 <div class="form-group"><label for="f-city">City / Location</label><input type="text" id="f-city" placeholder="Your city"/><span class="field-error" id="err-city"></span><span class="field-ok" id="ok-city">✓ Got it</span></div>
 <div class="form-group"><label for="f-type">Chandelier Type</label><select id="f-type"><option value="">-- Select Type --</option><option>Ceiling Lights</option><option>Chandeliers</option><option>Double Height Lights</option><option>Fandeliers</option><option>Multilayer Lights</option></select><span class="field-error" id="err-type"></span><span class="field-ok" id="ok-type">✓ Selected</span></div>
@@ -419,6 +423,14 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 <h2 class="section-heading">Why Showlites</h2>
 <div class="gold-line"></div>
 </div>
+<div class="why-grid">
+<div class="why-card fade-up"><div class="why-icon"><i class="fa-solid fa-pencil-ruler"></i></div><h3>Custom Bespoke Designs</h3></div>
+<div class="why-card fade-up" style="transition-delay:.1s"><div class="why-icon"><i class="fa-solid fa-gem"></i></div><h3>Premium Quality Materials</h3></div>
+<div class="why-card fade-up" style="transition-delay:.2s"><div class="why-icon"><i class="fa-solid fa-comments"></i></div><h3>Free Design Consultation</h3></div>
+<div class="why-card fade-up" style="transition-delay:.3s"><div class="why-icon"><i class="fa-solid fa-truck"></i></div><h3>Pan-India Delivery &amp; Install</h3></div>
+<div class="why-card fade-up" style="transition-delay:.4s"><div class="why-icon"><i class="fa-solid fa-shield-halved"></i></div><h3>2-Year Product Warranty</h3></div>
+<div class="why-card fade-up" style="transition-delay:.5s"><div class="why-icon"><i class="fa-solid fa-headset"></i></div><h3>Dedicated After-Sales Support</h3></div>
+</div>
 </div>
 </section>
 
@@ -450,16 +462,14 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 <footer id="footer">
 <div class="container">
 <div class="footer-grid">
-<div class="footer-col"><div class="footer-logo">✦ Showlites</div><p class="footer-tagline">Crafting bespoke chandeliers that transform spaces into luminous masterpieces since 2009. Chennai's most trusted name in luxury lighting.</p><div class="footer-socials"><a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a><a href="#" class="social-icon"><i class="fa-brands fa-pinterest"></i></a><a href="#" class="social-icon"><i class="fa-brands fa-whatsapp"></i></a><a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a></div></div>
-<div class="footer-col"><h4>Quick Links</h4><ul><li><a href="#hero">Home</a></li><li><a href="#about">About Us</a></li><li><a href="#collections">Collections</a></li><li><a href="#enquiry">Contact</a></li></ul></div>
+<div class="footer-col"><div class="footer-logo">✦ Showlites</div><p class="footer-tagline">Crafting bespoke chandeliers that transform spaces into luminous masterpieces since 2009. Chennai's most trusted name in luxury lighting.</p></div>
 <div class="footer-col"><h4>Our Collections</h4><ul><li><a href="#collections">Ceiling Lights</a></li><li><a href="#collections">Chandeliers</a></li><li><a href="#collections">Double Height Lights</a></li><li><a href="#collections">Fandeliers</a></li><li><a href="#collections">Multilayer Lights</a></li></ul></div>
-<div class="footer-col"><h4>Contact Info</h4><div class="footer-contact-item"><i class="fa-solid fa-location-dot"></i><span>No. 12, Velachery Main Road, Chennai – 600042, Tamil Nadu</span></div><div class="footer-contact-item"><i class="fa-solid fa-phone"></i><span>+91 98400 00000</span></div><div class="footer-contact-item"><i class="fa-solid fa-envelope"></i><span>hello@showlites.in</span></div><div class="footer-contact-item"><i class="fa-solid fa-clock"></i><span>Mon–Sat: 10am–7pm · Sun: 11am–4pm</span></div></div>
+<div class="footer-col"><h4>Contact Info</h4><div class="footer-contact-item"><i class="fa-solid fa-location-dot"></i><span>No. 12, Velachery Main Road, Chennai – 600042, Tamil Nadu</span></div><div class="footer-contact-item"><i class="fa-solid fa-phone"></i><span>+91 98400 00000</span></div><div class="footer-contact-item"><i class="fa-solid fa-clock"></i><span>Mon–Sat: 10am–7pm · Sun: 11am–4pm</span></div></div>
 </div>
 </div>
-<div class="footer-bottom"><p>© 2025 Showlites. All Rights Reserved. | Designed with ✦ for Elegance</p></div>
+<div class="footer-bottom"><div class="container"><p>Copyrights © 2025 Showlites. All Rights Reserved.</p></div></div>
 </footer>
 
-<button id="back-top" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fa-solid fa-arrow-up"></i></button>
 
 <script>
 // ===== DATA =====
@@ -639,7 +649,6 @@ document.getElementById('testi-next').onclick=()=>{clearInterval(teTimer);goTest
 window.addEventListener('scroll',()=>{
   const y=window.scrollY;
   document.getElementById('navbar').classList.toggle('scrolled',y>80);
-  document.getElementById('back-top').classList.toggle('show',y>300);
   // Active nav
   const secs=['hero','about','collections','why','testimonials','enquiry'];
   let cur='';
@@ -716,11 +725,6 @@ function validateField(id){
     if(!/^[a-zA-Z\s]+$/.test(v))return setField(id,false,'Letters and spaces only.');
     return setField(id,true,'');
   }
-  if(id==='f-email'){
-    if(!v)return setField(id,false,'Email is required.');
-    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v))return setField(id,false,'Enter a valid email.');
-    return setField(id,true,'');
-  }
   if(id==='f-phone'){
     if(!v)return setField(id,false,'Phone number is required.');
     if(!/^[6-9]\d{9}$/.test(v))return setField(id,false,'Enter valid 10-digit Indian mobile number.');
@@ -739,14 +743,14 @@ function validateField(id){
     return setField(id,true,'');
   }
 }
-['f-name','f-email','f-phone','f-city','f-type','f-room','f-budget','f-msg'].forEach(id=>{
+['f-name','f-phone','f-city','f-type','f-room','f-budget','f-msg'].forEach(id=>{
   const el=document.getElementById(id);
   el.addEventListener('blur',()=>validateField(id));
   el.addEventListener('input',()=>{if(el.closest('.form-group').classList.contains('invalid'))validateField(id);});
 });
 document.getElementById('enquiry-form').addEventListener('submit',e=>{
   e.preventDefault();
-  const fields=['f-name','f-email','f-phone','f-city','f-type','f-room','f-budget','f-msg'];
+  const fields=['f-name','f-phone','f-city','f-type','f-room','f-budget','f-msg'];
   const results=fields.map(validateField);
   if(results.some(r=>!r)){
     const firstInvalid=document.querySelector('.form-group.invalid input, .form-group.invalid select, .form-group.invalid textarea');
