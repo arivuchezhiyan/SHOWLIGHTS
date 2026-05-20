@@ -1,0 +1,779 @@
+<!DOCTYPE
+
+ html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Showlites – Premium Interior Chandeliers | Luxury Lighting India</title>
+<meta name="description" content="Showlites crafts bespoke chandeliers for homes, hotels & beyond. Premium ceiling lights, chandeliers, double-height pendants, fandeliers & multilayer lights across India."/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700&display=swap');
+
+/* ===== CSS VARIABLES ===== */
+:root {
+  --bg-primary:#0A0A0A;
+  --bg-surface:#111111;
+  --bg-card:#16130b;
+  --bg-card-high:#231f17;
+  --bg-card-highest:#38342b;
+  --text-primary:#F8F5F0;
+  --text-secondary:#d0c5af;
+  --text-muted:#99907c;
+  --accent:#D4AF37;
+  --accent-bright:#f2ca50;
+  --accent-dim:#e9c349;
+  --accent-hover:#BA976C;
+  --accent-glow:rgba(212,175,55,0.2);
+  --accent-glow-sm:rgba(212,175,55,0.1);
+  --border:#4d4635;
+  --border-subtle:rgba(212,175,55,0.15);
+  --gradient:linear-gradient(135deg,#0A0A0A 0%,#16130b 50%,#231f17 100%);
+  --gold-shine:linear-gradient(135deg,#b8860b 0%,#D4AF37 30%,#f2ca50 50%,#D4AF37 70%,#b8860b 100%);
+  --radius-sm:4px;
+  --radius-md:8px;
+  --radius-lg:16px;
+  --transition:0.3s ease;
+  --nav-height:80px;
+  --silver-glitter:linear-gradient(135deg,rgba(255,255,255,0) 0%,rgba(192,192,192,0.05) 20%,rgba(255,255,255,0.15) 35%,rgba(192,192,192,0.08) 50%,rgba(255,255,255,0.03) 70%,rgba(192,192,192,0.12) 85%,rgba(255,255,255,0) 100%);
+}
+
+/* ===== RESET ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg-primary);color:var(--text-primary);font-family:'Manrope',sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+ul{list-style:none;}
+button{cursor:pointer;border:none;background:none;font-family:inherit;}
+
+/* ===== UTILITY ===== */
+.container{max-width:1280px;margin:0 auto;padding:0 64px;}
+.section-label{font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
+.section-heading{font-family:'Playfair Display',serif;font-size:clamp(32px,4vw,48px);font-weight:700;line-height:1.15;color:var(--text-primary);}
+.section-sub{color:var(--text-secondary);font-size:17px;line-height:1.7;margin-top:12px;}
+.gold-line{width:60px;height:1px;background:var(--accent);margin:20px 0;}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#0A0A0A;padding:14px 32px;border-radius:var(--radius-sm);font-family:'Manrope',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;transition:var(--transition);box-shadow:0 0 20px var(--accent-glow);}
+.btn-primary:hover{background:var(--accent-bright);box-shadow:0 0 30px rgba(242,202,80,0.4);transform:translateY(-2px);}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--accent);padding:13px 31px;border-radius:var(--radius-sm);font-family:'Manrope',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;border:1px solid var(--accent);transition:var(--transition);}
+.btn-outline:hover{background:var(--accent);color:#0A0A0A;box-shadow:0 0 20px var(--accent-glow);}
+.fade-up{opacity:0;transform:translateY(40px);transition:opacity 0.6s ease,transform 0.6s ease;}
+.fade-up.visible{opacity:1;transform:translateY(0);}
+
+/* ===== NAVIGATION ===== */
+#navbar{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 64px;height:var(--nav-height);background:rgba(10,10,10,0.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 1px 0 var(--border-subtle),0 4px 30px rgba(0,0,0,0.5);}
+.nav-logo{display:flex;align-items:center;gap:10px;font-family:'Playfair Display',serif;font-size:32px;font-weight:700;color:var(--accent);letter-spacing:0.1em;text-transform:uppercase;}
+.nav-logo svg{width:28px;height:28px;flex-shrink:0;}
+.nav-links{display:flex;align-items:center;gap:36px;}
+.nav-links a{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-secondary);transition:color var(--transition);position:relative;padding-bottom:4px;}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--accent);transition:width var(--transition);}
+.nav-links a:hover,.nav-links a.active{color:var(--accent);}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%;}
+.nav-cta{background:linear-gradient(135deg, var(--accent) 0%, var(--accent-bright) 100%);color:#0A0A0A;padding:14px 32px;border-radius:50px;font-size:13px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;transition:all 0.4s cubic-bezier(0.175,0.885,0.32,1.275);box-shadow:0 8px 20px rgba(212,175,55,0.3);border:1px solid rgba(255,255,255,0.4);display:inline-flex;align-items:center;justify-content:center;}
+.nav-cta:hover{background:linear-gradient(135deg, var(--accent-bright) 0%, var(--accent) 100%);transform:translateY(-1px);box-shadow:0 6px 15px rgba(212,175,55,0.4);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;}
+.hamburger span{display:block;width:24px;height:2px;background:var(--accent);transition:var(--transition);}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mobile-menu{display:none;position:fixed;top:var(--nav-height);left:0;right:0;background:rgba(10,10,10,0.97);backdrop-filter:blur(20px);flex-direction:column;padding:24px 32px;gap:16px;border-bottom:1px solid var(--border-subtle);z-index:999;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-secondary);padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.05);transition:color var(--transition);}
+.mobile-menu a:hover,.mobile-menu a.active{color:var(--accent);}
+
+/* ===== HERO SECTION ===== */
+#hero{position:relative;height:100vh;min-height:850px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#000;}
+.hero-bg{position:absolute;inset:0;z-index:0;display:flex;align-items:center;justify-content:center;background:#000;}
+.hero-bg img{width:100%;height:100%;object-fit:contain;object-position:center;max-height:100vh;}
+.hero-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.9) 100%);}
+.hero-content{position:relative;z-index:2;text-align:center;width:100%;max-width:1200px;padding:0 24px;margin-top:10vh;}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(50px,8vw,100px);font-weight:700;line-height:1.1;letter-spacing:-0.02em;color:#fff;margin-bottom:24px;text-shadow:0 4px 20px rgba(0,0,0,0.8);}
+.hero-title span{color:var(--accent);text-shadow:0 4px 20px rgba(0,0,0,0.8), 0 0 15px rgba(212,175,55,0.4);display:inline-block;padding-bottom:10px;}
+.hero-sub{font-size:22px;color:#e0e0e0;max-width:700px;margin:0 auto 50px;line-height:1.7;font-weight:400;text-shadow:0 2px 10px rgba(0,0,0,0.8);}
+.hero-btns{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;}
+.btn-primary.large{padding:18px 48px;font-size:14px;background:rgba(212,175,55,0.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#0A0A0A;text-transform:uppercase;letter-spacing:3px;font-weight:800;box-shadow:0 10px 40px rgba(212,175,55,0.3);border-radius:50px;border:1px solid rgba(255,255,255,0.2);transition:all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);}
+.btn-primary.large:hover{background:var(--accent-bright);transform:translateY(-5px) scale(1.03);box-shadow:0 15px 50px rgba(242,202,80,0.6);}
+.btn-outline.large{padding:18px 48px;font-size:14px;background:rgba(255,255,255,0.05);backdrop-filter:blur(15px);-webkit-backdrop-filter:blur(15px);border:1px solid rgba(255,255,255,0.3);color:#fff;text-transform:uppercase;letter-spacing:3px;font-weight:800;border-radius:50px;transition:all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);}
+.btn-outline.large:hover{background:#fff;color:#0A0A0A;border-color:#fff;transform:translateY(-5px) scale(1.03);box-shadow:0 10px 40px rgba(255,255,255,0.2);}
+
+/* HERO STATS BAR */
+.hero-stats-wrap{position:absolute;bottom:0;left:0;right:0;z-index:3;background:rgba(10,10,10,0.6);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid rgba(212,175,55,0.3);}
+.hero-stats-bar{display:flex;justify-content:space-around;align-items:center;max-width:1200px;margin:0 auto;padding:30px 24px;flex-wrap:wrap;gap:30px;}
+.hero-stat{text-align:center;}
+.hero-stat-num{font-family:'Playfair Display',serif;font-size:44px;font-weight:700;color:var(--accent);text-shadow:0 0 15px rgba(212,175,55,0.4);line-height:1;}
+.hero-stat-label{font-size:13px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:#fff;margin-top:8px;}
+
+.scroll-arrow{display:none;} /* Hidden to favor stats bar */
+
+/* ===== ABOUT SECTION ===== */
+#about{padding:60px 0;background:var(--bg-primary);}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.about-text .gold-line{margin:20px 0 28px;}
+.about-text p{color:var(--text-secondary);line-height:1.8;margin-bottom:18px;font-size:16px;}
+.about-stats{display:flex;gap:40px;margin-top:40px;padding-top:40px;border-top:1px solid var(--border-subtle);}
+.stat-item{text-align:center;}
+.stat-num{font-family:'Playfair Display',serif;font-size:40px;font-weight:700;color:var(--accent);line-height:1;}
+.stat-label{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-top:6px;}
+.about-img-wrap{position:relative;}
+.about-img-wrap img{width:100%;height:600px;object-fit:cover;border-radius:var(--radius-sm);box-shadow:0 0 60px rgba(212,175,55,0.15);}
+.about-img-wrap::before{content:'';position:absolute;inset:-16px;border:1px solid var(--border-subtle);border-radius:var(--radius-sm);pointer-events:none;}
+.about-img-wrap::after{content:'';position:absolute;inset:-16px;border:1px solid rgba(212,175,55,0.08);border-radius:var(--radius-sm);transform:translate(8px,8px);pointer-events:none;}
+
+/* ===== COLLECTIONS SECTION ===== */
+#collections{padding:60px 0;background:linear-gradient(180deg,var(--bg-primary) 0%,#0d0b06 100%);}
+#collections-inner{padding:0 5vw; max-width:100%;}
+.section-header{text-align:center;margin-bottom:60px;}
+.section-header .gold-line{margin:20px auto;}
+.category-block{margin-bottom:40px;}
+.category-title{font-family:'Playfair Display',serif;font-size:clamp(28px,3vw,38px);font-weight:700;color:var(--accent);margin-bottom:8px;}
+.category-desc{color:var(--text-secondary);font-size:15px;margin-bottom:0;}
+.category-header{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:32px;padding-bottom:16px;border-bottom:1px solid var(--border-subtle);}
+/* Slider */
+.card-slider-wrap{display:flex;align-items:center;gap:16px;position:relative;}
+.card-slider{flex:1;display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:16px;scrollbar-width:none;}
+.card-slider::-webkit-scrollbar{display:none;}
+.slider-btn{flex-shrink:0;width:44px;height:44px;border-radius:50%;background:rgba(10,10,10,0.8);border:1px solid var(--accent);color:var(--accent);font-size:18px;display:flex;align-items:center;justify-content:center;transition:var(--transition);backdrop-filter:blur(10px);box-shadow:0 4px 12px rgba(0,0,0,0.5);}
+.slider-btn:hover{background:var(--accent);color:#0A0A0A;}
+.slider-btn.prev{}
+.slider-btn.next{}
+
+/* ===== FLIP CARD ===== */
+.flip-card{flex:0 0 300px;width:300px;height:420px;scroll-snap-align:start;perspective:1000px;cursor:pointer;}
+.flip-card-inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform 0.7s cubic-bezier(0.4,0,0.2,1);}
+.flip-card:hover .flip-card-inner,
+.flip-card.flipped .flip-card-inner {transform:rotateY(180deg);}
+.flip-front,.flip-back{position:absolute;inset:0;border-radius:var(--radius-md);backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;}
+
+/* FRONT — Black royal with silver glitter */
+.flip-front{background:#0A0A0A;border:1px solid rgba(192,192,192,0.15);}
+.flip-front::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.18) 0%,rgba(192,192,192,0.06) 15%,transparent 35%,rgba(192,192,192,0.04) 55%,rgba(255,255,255,0.1) 75%,rgba(192,192,192,0.15) 100%);pointer-events:none;z-index:1;}
+.flip-front::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 15% 15%,rgba(255,255,255,0.12) 0%,transparent 50%),radial-gradient(ellipse at 85% 85%,rgba(212,175,55,0.08) 0%,transparent 50%);pointer-events:none;z-index:1;}
+.card-img{width:100%;height:240px;object-fit:cover;display:block;}
+.card-front-body{padding:20px;position:relative;z-index:2;}
+.card-front-body h4{font-family:'Playfair Display',serif;font-size:17px;font-weight:600;color:var(--text-primary);margin-bottom:6px;line-height:1.3;}
+.card-front-body p{font-size:12px;color:var(--text-secondary);line-height:1.5;margin-bottom:12px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.card-sku{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);}
+
+/* Glitter particle dots */
+.glitter-overlay{position:absolute;inset:0;pointer-events:none;z-index:3;overflow:hidden;}
+.glitter-overlay::before{content:'';position:absolute;width:2px;height:2px;background:#fff;border-radius:50%;box-shadow:20px 30px 0 rgba(255,255,255,0.6),60px 80px 0 rgba(192,192,192,0.5),100px 40px 0 rgba(255,255,255,0.4),140px 100px 0 rgba(212,175,55,0.6),180px 60px 0 rgba(255,255,255,0.5),220px 130px 0 rgba(192,192,192,0.4),260px 90px 0 rgba(255,255,255,0.6),290px 160px 0 rgba(212,175,55,0.5),50px 200px 0 rgba(255,255,255,0.3),120px 260px 0 rgba(192,192,192,0.5),200px 300px 0 rgba(212,175,55,0.4),240px 350px 0 rgba(255,255,255,0.6),280px 390px 0 rgba(192,192,192,0.5);animation:glitterAnim 3s ease-in-out infinite alternate;}
+@keyframes glitterAnim{0%{opacity:0.4;}100%{opacity:1;}}
+
+/* BACK — Golden glassy */
+.flip-back{transform:rotateY(180deg);background:linear-gradient(135deg,#3d2f00 0%,#5c4400 20%,#D4AF37 45%,#f2ca50 55%,#D4AF37 65%,#8b6914 80%,#3d2f00 100%);border:1px solid rgba(212,175,55,0.5);}
+.flip-back::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,0.55);pointer-events:none;}
+.flip-back::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.18) 0%,rgba(255,215,0,0.06) 20%,transparent 40%,rgba(255,215,0,0.04) 60%,rgba(255,255,255,0.12) 80%,rgba(255,215,0,0.15) 100%);pointer-events:none;}
+.flip-back-content{position:relative;z-index:2;padding:24px;height:100%;display:flex;flex-direction:column;justify-content:space-between;}
+.flip-back h4{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--accent-bright);margin-bottom:12px;line-height:1.2;}
+.flip-spec-list{flex:1 1 auto;min-height:0;overflow-y:auto;scrollbar-width:none;display:flex;flex-direction:column;gap:6px;-ms-overflow-style:none;}
+.flip-spec-list::-webkit-scrollbar{display:none;}
+.flip-spec{display:flex;flex-direction:column;gap:2px;padding:4px 0;border-bottom:1px solid rgba(212,175,55,0.2);}
+.flip-spec-label{font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(212,175,55,0.7);}
+.flip-spec-val{font-size:12px;color:var(--text-primary);font-weight:500;}
+.flip-back-cta{flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;gap:6px;background:var(--accent);color:#0A0A0A;padding:12px 20px;border-radius:var(--radius-sm);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-top:12px;transition:var(--transition);}
+.flip-back-cta:hover{background:var(--accent-bright);}
+.back-glitter::before{content:'';position:absolute;width:2px;height:2px;background:rgba(255,215,0,0.8);border-radius:50%;box-shadow:25px 20px 0 rgba(255,215,0,0.7),70px 60px 0 rgba(255,255,255,0.5),110px 30px 0 rgba(255,215,0,0.6),150px 90px 0 rgba(255,255,255,0.4),190px 50px 0 rgba(255,215,0,0.7),230px 120px 0 rgba(255,255,255,0.5),265px 80px 0 rgba(255,215,0,0.6),285px 150px 0 rgba(255,255,255,0.5),45px 190px 0 rgba(255,215,0,0.4),115px 250px 0 rgba(255,255,255,0.5),195px 290px 0 rgba(255,215,0,0.6),245px 340px 0 rgba(255,255,255,0.5),275px 380px 0 rgba(255,215,0,0.7);animation:glitterAnim 2.5s ease-in-out infinite alternate;}
+
+/* ===== WHY CHOOSE ===== */
+#why{height:100vh;display:flex;align-items:center;justify-content:center;background:var(--bg-surface);padding:0;}
+#why .section-header{margin-bottom:0;}
+#why .container{width:100%;}
+
+/* ===== TESTIMONIALS ===== */
+#testimonials{padding:60px 0;background:linear-gradient(180deg,#0d0b06 0%,var(--bg-primary) 100%);}
+.testimonial-carousel{position:relative;overflow:hidden;margin-top:30px;}
+.testimonial-track{display:flex;transition:transform 0.5s ease;}
+.testimonial-card{flex:0 0 100%;padding:0 80px;}
+.testi-inner{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:var(--radius-md);padding:48px;border-left:4px solid var(--accent);position:relative;}
+.testi-stars{color:var(--accent);font-size:18px;margin-bottom:20px;letter-spacing:4px;}
+.testi-quote{font-size:17px;color:var(--text-secondary);line-height:1.8;font-style:italic;margin-bottom:28px;}
+.testi-author{font-weight:700;color:var(--text-primary);font-size:15px;}
+.testi-meta{font-size:12px;color:var(--text-muted);margin-top:4px;letter-spacing:0.05em;}
+.testi-controls{display:flex;align-items:center;justify-content:center;gap:24px;margin-top:40px;}
+.testi-arrow{width:44px;height:44px;border-radius:50%;border:1px solid var(--border-subtle);color:var(--accent);font-size:18px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:var(--transition);}
+.testi-arrow:hover{background:var(--accent);color:#0A0A0A;border-color:var(--accent);}
+.testi-dots{display:flex;gap:8px;}
+.testi-dot{width:8px;height:8px;border-radius:50%;background:var(--border);cursor:pointer;transition:var(--transition);}
+.testi-dot.active{background:var(--accent);width:24px;border-radius:4px;}
+
+/* ===== FORM SECTION ===== */
+#enquiry{padding:60px 0;background:var(--bg-surface);}
+.form-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:40px;align-items:start;margin-top:30px;}
+.form-deco{position:relative;}
+.form-deco-img{width:100%;height:500px;object-fit:cover;border-radius:var(--radius-sm);box-shadow:0 0 60px rgba(212,175,55,0.15);}
+.form-quote{margin-top:32px;padding:24px;border-left:3px solid var(--accent);background:var(--bg-card);border-radius:0 var(--radius-sm) var(--radius-sm) 0;}
+.form-quote p{font-family:'Playfair Display',serif;font-size:18px;font-style:italic;color:var(--text-secondary);line-height:1.6;}
+.form-wrap form{display:flex;flex-direction:column;gap:20px;}
+.form-group{display:flex;flex-direction:column;gap:6px;position:relative;}
+.form-group label{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);}
+.form-group input,.form-group select,.form-group textarea{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text-primary);font-family:'Manrope',sans-serif;font-size:15px;padding:14px 16px;transition:border-color var(--transition),box-shadow var(--transition);outline:none;width:100%;}
+.form-group select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='%23D4AF37'%3E%3Cpath d='M0 0l6 8 6-8z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:40px;}
+.form-group select option{background:#1a1600;color:var(--text-primary);}
+.form-group textarea{resize:vertical;min-height:120px;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(212,175,55,0.1);}
+.form-group.valid input,.form-group.valid select,.form-group.valid textarea{border-color:#4caf50;}
+.form-group.invalid input,.form-group.invalid select,.form-group.invalid textarea{border-color:#f44336;}
+.field-error{font-size:12px;color:#f44336;margin-top:2px;display:none;}
+.field-error.show{display:block;}
+.field-ok{font-size:12px;color:#4caf50;margin-top:2px;display:none;}
+.field-ok.show{display:block;}
+.btn-submit{background:var(--accent);color:#0A0A0A;padding:16px;border-radius:var(--radius-sm);font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;width:100%;transition:var(--transition);box-shadow:0 0 20px var(--accent-glow);}
+.btn-submit:hover{background:var(--accent-bright);box-shadow:0 0 40px rgba(242,202,80,0.4);}
+.form-success{display:none;text-align:center;padding:48px 32px;background:var(--bg-card);border:1px solid rgba(76,175,80,0.3);border-radius:var(--radius-md);}
+.form-success.show{display:block;}
+.form-success h3{font-family:'Playfair Display',serif;font-size:26px;color:var(--accent);margin-bottom:16px;}
+.form-success p{color:var(--text-secondary);line-height:1.7;margin-bottom:24px;}
+
+/* ===== FOOTER ===== */
+#footer{background:var(--bg-primary);border-top:1px solid var(--border-subtle);padding:40px 0 0;}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:60px;margin-bottom:60px;}
+.footer-logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--accent);margin-bottom:16px;}
+.footer-tagline{font-size:14px;color:var(--text-muted);line-height:1.7;margin-bottom:24px;}
+.footer-socials{display:flex;gap:12px;}
+.social-icon{width:38px;height:38px;border-radius:50%;border:1px solid var(--border-subtle);display:flex;align-items:center;justify-content:center;color:var(--text-secondary);font-size:14px;transition:var(--transition);}
+.social-icon:hover{background:var(--accent);color:#0A0A0A;border-color:var(--accent);}
+.footer-col h4{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;}
+.footer-col ul{display:flex;flex-direction:column;gap:10px;}
+.footer-col ul li a{font-size:14px;color:var(--text-muted);transition:color var(--transition);}
+.footer-col ul li a:hover{color:var(--accent);}
+.footer-contact-item{display:flex;gap:10px;align-items:flex-start;margin-bottom:12px;font-size:13px;color:var(--text-muted);}
+.footer-contact-item i{color:var(--accent);margin-top:2px;flex-shrink:0;}
+.footer-bottom{border-top:1px solid var(--border-subtle);padding:20px 0;display:flex;align-items:center;justify-content:center;background:var(--accent);}
+.footer-bottom p{font-size:12px;font-weight:700;letter-spacing:0.08em;color:#0A0A0A;}
+
+/* ===== BACK TO TOP ===== */
+#back-top{position:fixed;bottom:32px;right:32px;z-index:800;width:48px;height:48px;background:var(--accent);border-radius:50%;display:none;align-items:center;justify-content:center;color:#0A0A0A;font-size:20px;box-shadow:0 4px 20px var(--accent-glow);transition:var(--transition);}
+#back-top.show{display:flex;}
+#back-top:hover{background:var(--accent-bright);transform:translateY(-3px);}
+
+/* ===== ANIMATIONS ===== */
+@keyframes glimmer{0%{background-position:200% center;}100%{background-position:-200% center;}}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1024px){
+  .container{padding:0 32px;}
+  #navbar{padding:0 32px;}
+  .about-grid{gap:48px;}
+  .why-grid{grid-template-columns:repeat(2,1fr);}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:40px;}
+  .gallery-grid{columns:3;}
+}
+@media(max-width:768px){
+  .nav-logo{font-size:24px;}
+  .nav-cta{padding:12px 24px;font-size:12px;}
+  .container{padding:0 20px;}
+  #navbar{padding:0 20px;}
+  #about,#collections,.why-grid,.form-grid,#testimonials,#enquiry,#footer{padding:40px 0;}
+  .category-block{margin-bottom:30px;}
+  .about-grid{grid-template-columns:1fr;}
+  .about-img-wrap img{height:400px;}
+  .about-stats{flex-wrap:wrap;gap:24px;}
+  .why-grid{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:32px;}
+  .form-grid{grid-template-columns:1fr;}
+  .form-deco{display:none;}
+  .gallery-grid{columns:2;}
+  .testimonial-card{padding:0 16px;}
+  .flip-card{flex:0 0 260px;width:260px;height:400px;}
+}
+@media(max-width:480px){
+  .nav-logo{font-size:20px;}
+  .nav-cta{padding:10px 20px;font-size:11px;}
+  .hero-title{font-size:32px;}
+  .hero-btns{flex-direction:column;align-items:center;}
+  .hero-badges{gap:16px;}
+  .gallery-grid{columns:1;}
+  .footer-grid{grid-template-columns:1fr;}
+  .flip-card{flex:0 0 240px;width:240px;}
+}
+@media(min-width:1280px){
+  .container{padding:0 80px;}
+  #navbar{padding:0 80px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">
+    SHOWLITES
+  </a>
+  <a href="#enquiry" class="nav-cta">Get a Quote</a>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section id="hero">
+  <div class="hero-bg">
+    <img src="Chandeliers/chand_1.png" alt="Showlites luxury chandelier"/>
+    <div class="hero-overlay"></div>
+  </div>
+  <div class="hero-content fade-up visible">
+    <h1 class="hero-title">Masterpieces of<br><span>Illumination</span></h1>
+    <p class="hero-sub">Transform your space with our breathtaking, handcrafted chandeliers designed to command attention and radiate absolute luxury.</p>
+    <div class="hero-btns">
+      <a href="#collections" class="btn-primary large">View Collections</a>
+      <a href="#enquiry" class="btn-outline large">Request a Quote</a>
+    </div>
+  </div>
+  
+  <!-- Clear Stats Bar at the bottom of the hero -->
+  <div class="hero-stats-wrap">
+    <div class="hero-stats-bar">
+      <div class="hero-stat fade-up" style="transition-delay: 0.1s;">
+        <div class="hero-stat-num stat-num" data-target="500">0</div>
+        <div class="hero-stat-label">Installations</div>
+      </div>
+      <div class="hero-stat fade-up" style="transition-delay: 0.2s;">
+        <div class="hero-stat-num stat-num" data-target="50">0</div>
+        <div class="hero-stat-label">Cities</div>
+      </div>
+      <div class="hero-stat fade-up" style="transition-delay: 0.3s;">
+        <div class="hero-stat-num">100%</div>
+        <div class="hero-stat-label">Handcrafted</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ENQUIRY FORM ===== -->
+<section id="enquiry">
+<div class="container">
+<div class="section-header fade-up"><p class="section-label">Get in Touch</p><h2 class="section-heading">Get a Free Quote</h2><div class="gold-line"></div><p class="section-sub">Tell us about your space and we'll design the perfect chandelier</p></div>
+<div class="form-grid fade-up">
+<div class="form-deco">
+<img class="form-deco-img" src="Chandeliers/chand_4.png" alt="Showlites luxury installation" style="object-position: center; background: #0a0a0a;"/>
+<div class="form-quote"><p>"Light is not merely the absence of darkness — it is the art of transforming a space into an experience. At Showlites, we sculpt light."</p></div>
+</div>
+<div class="form-wrap">
+<div class="form-success" id="form-success"><h3>✅ Enquiry Received!</h3><p id="success-msg"></p><button class="btn-primary" id="reset-form" style="margin:0 auto;">Submit Another Enquiry</button></div>
+<form id="enquiry-form" novalidate>
+<div class="form-group"><label for="f-name">Full Name</label><input type="text" id="f-name" placeholder="Your full name"/><span class="field-error" id="err-name"></span><span class="field-ok" id="ok-name">✓ Looks good</span></div>
+<div class="form-group"><label for="f-email">Email Address</label><input type="email" id="f-email" placeholder="your@email.com"/><span class="field-error" id="err-email"></span><span class="field-ok" id="ok-email">✓ Valid email</span></div>
+<div class="form-group"><label for="f-phone">Phone Number</label><input type="tel" id="f-phone" placeholder="10-digit mobile number"/><span class="field-error" id="err-phone"></span><span class="field-ok" id="ok-phone">✓ Valid number</span></div>
+<div class="form-group"><label for="f-city">City / Location</label><input type="text" id="f-city" placeholder="Your city"/><span class="field-error" id="err-city"></span><span class="field-ok" id="ok-city">✓ Got it</span></div>
+<div class="form-group"><label for="f-type">Chandelier Type</label><select id="f-type"><option value="">-- Select Type --</option><option>Ceiling Lights</option><option>Chandeliers</option><option>Double Height Lights</option><option>Fandeliers</option><option>Multilayer Lights</option></select><span class="field-error" id="err-type"></span><span class="field-ok" id="ok-type">✓ Selected</span></div>
+<div class="form-group"><label for="f-room">Room Type</label><select id="f-room"><option value="">-- Select Room --</option><option>Living Room</option><option>Dining Room</option><option>Bedroom</option><option>Hotel Lobby</option><option>Office</option><option>Restaurant</option><option>Other</option></select><span class="field-error" id="err-room"></span><span class="field-ok" id="ok-room">✓ Selected</span></div>
+<div class="form-group"><label for="f-budget">Budget Range</label><select id="f-budget"><option value="">-- Select Budget --</option><option>Under ₹10,000</option><option>₹10,000 – ₹25,000</option><option>₹25,000 – ₹50,000</option><option>₹50,000 – ₹1,00,000</option><option>Above ₹1,00,000</option></select><span class="field-error" id="err-budget"></span><span class="field-ok" id="ok-budget">✓ Selected</span></div>
+<div class="form-group"><label for="f-msg">Message / Requirements</label><textarea id="f-msg" placeholder="Describe your space, ceiling height, style preferences..." rows="5"></textarea><span class="field-error" id="err-msg"></span><span class="field-ok" id="ok-msg">✓ Message received</span></div>
+<button type="submit" class="btn-submit">Send My Enquiry →</button>
+</form>
+</div>
+</div>
+</div>
+</section>
+
+
+
+<!-- ===== ABOUT ===== -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid fade-up">
+      <div class="about-text">
+        <p class="section-label">Who We Are</p>
+        <h2 class="section-heading">Crafting Light<br>into Art Since 2009</h2>
+        <div class="gold-line"></div>
+        <p>Showlites was born from a singular vision — to transform interior spaces into luminous masterpieces. Since 2009, we have been at the forefront of premium chandelier design, combining centuries-old craftsmanship with contemporary aesthetics to create lighting that transcends the ordinary.</p>
+        <p>Every Showlites piece is a bespoke creation, meticulously handcrafted from the finest materials — precision-cut crystals, French Gold metalwork, Italian marble, and premium hand-blown glass. Our design consultants work closely with homeowners, architects, and interior designers across India to deliver lighting installations that are as unique as the spaces they illuminate.</p>
+        <p>From intimate bedroom pendants to grand hotel lobby chandeliers, from elegant double-height statement pieces to functional fandeliers, Showlites delivers premium lighting across every room type — backed by our commitment to quality, timely installation, and dedicated after-sales care.</p>
+        <div class="about-stats">
+          <div class="stat-item">
+            <div class="stat-num" data-target="500">0</div>
+            <div class="stat-label">Installations</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num" data-target="58">0</div>
+            <div class="stat-label">Designs</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num" data-target="15">0</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-img-wrap">
+        <img src="Chandeliers/chand_2.png" alt="Showlites artisan crafting a premium chandelier"/>
+      </div>
+    </div>
+  </div>
+
+<!-- ===== COLLECTIONS ===== -->
+<section id="collections">
+<div class="container">
+<div class="section-header fade-up">
+<p class="section-label">Our Collections</p>
+<h2 class="section-heading">Handcrafted Lighting for Every Space</h2>
+<div class="gold-line"></div>
+<p class="section-sub">Hover any card to reveal full specifications.</p>
+</div>
+</div>
+<div id="collections-inner"></div>
+</section>
+
+<!-- ===== WHY SHOWLITES ===== -->
+<section id="why">
+<div class="container">
+<div class="section-header fade-up">
+<p class="section-label">Why Choose Us</p>
+<h2 class="section-heading">Why Showlites</h2>
+<div class="gold-line"></div>
+</div>
+</div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section id="testimonials">
+<div class="container">
+<div class="section-header fade-up"><p class="section-label">Client Stories</p><h2 class="section-heading">What Our Clients Say</h2><div class="gold-line"></div></div>
+<div class="testimonial-carousel fade-up">
+<div class="testimonial-track" id="testi-track">
+<div class="testimonial-card"><div class="testi-inner"><div class="testi-stars">★★★★★</div><p class="testi-quote">"The double-height chandelier Showlites installed in our villa entrance is absolutely breathtaking. Every guest who walks in stops to admire it. The craftsmanship and French Gold finish glow magnificently in the evening light."</p><div class="testi-author">Priya Raghunathan</div><div class="testi-meta">Chennai, Tamil Nadu · Double Height Chandelier</div></div></div>
+<div class="testimonial-card"><div class="testi-inner"><div class="testi-stars">★★★★★</div><p class="testi-quote">"We chose Showlites for our restaurant renovation and the multilayer pendant lights completely transformed the ambiance. Dining reservations increased by 40% since installation. Exceptional quality and professional service."</p><div class="testi-author">Arjun Mehta</div><div class="testi-meta">Mumbai, Maharashtra · Multilayer Pendants</div></div></div>
+<div class="testimonial-card"><div class="testi-inner"><div class="testi-stars">★★★★★</div><p class="testi-quote">"The crystal ceiling lights in our living room are a masterpiece. Showlites delivered exactly what we envisioned — luxury without ostentation. The free consultation saved us hours and the installation team was impeccably professional."</p><div class="testi-author">Deepika Nair</div><div class="testi-meta">Bengaluru, Karnataka · Crystal Ceiling Lights</div></div></div>
+<div class="testimonial-card"><div class="testi-inner"><div class="testi-stars">★★★★★</div><p class="testi-quote">"Our hotel lobby now has the most spectacular chandelier in the city. The team understood our brand's luxury positioning perfectly and delivered a piece now featured in every hotel review. Outstanding work."</p><div class="testi-author">Vikram Singhania</div><div class="testi-meta">Delhi, NCR · Premium Hotel Lobby Chandelier</div></div></div>
+<div class="testimonial-card"><div class="testi-inner"><div class="testi-stars">★★★★★</div><p class="testi-quote">"The fandelier in our master bedroom is pure genius — it cools the room perfectly and looks stunning. The gold crystal design adds such elegance. Showlites has truly redefined what a ceiling fixture can be."</p><div class="testi-author">Kavitha Subramaniam</div><div class="testi-meta">Hyderabad, Telangana · Crystal Fandelier</div></div></div>
+<div class="testimonial-card"><div class="testi-inner"><div class="testi-stars">★★★★★</div><p class="testi-quote">"After comparing five chandelier companies, Showlites stood out for quality and pricing transparency. The 2-year warranty gave us confidence, and the post-installation support has been wonderful. Highly recommend."</p><div class="testi-author">Rajesh &amp; Meena Iyer</div><div class="testi-meta">Coimbatore, Tamil Nadu · Chandeliers &amp; Ceiling Lights</div></div></div>
+</div>
+</div>
+<div class="testi-controls">
+<div class="testi-arrow" id="testi-prev"><i class="fa-solid fa-chevron-left"></i></div>
+<div class="testi-dots" id="testi-dots"></div>
+<div class="testi-arrow" id="testi-next"><i class="fa-solid fa-chevron-right"></i></div>
+</div>
+</div>
+</section>
+
+
+
+<!-- ===== FOOTER ===== -->
+<footer id="footer">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-col"><div class="footer-logo">✦ Showlites</div><p class="footer-tagline">Crafting bespoke chandeliers that transform spaces into luminous masterpieces since 2009. Chennai's most trusted name in luxury lighting.</p><div class="footer-socials"><a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a><a href="#" class="social-icon"><i class="fa-brands fa-pinterest"></i></a><a href="#" class="social-icon"><i class="fa-brands fa-whatsapp"></i></a><a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a></div></div>
+<div class="footer-col"><h4>Quick Links</h4><ul><li><a href="#hero">Home</a></li><li><a href="#about">About Us</a></li><li><a href="#collections">Collections</a></li><li><a href="#enquiry">Contact</a></li></ul></div>
+<div class="footer-col"><h4>Our Collections</h4><ul><li><a href="#collections">Ceiling Lights</a></li><li><a href="#collections">Chandeliers</a></li><li><a href="#collections">Double Height Lights</a></li><li><a href="#collections">Fandeliers</a></li><li><a href="#collections">Multilayer Lights</a></li></ul></div>
+<div class="footer-col"><h4>Contact Info</h4><div class="footer-contact-item"><i class="fa-solid fa-location-dot"></i><span>No. 12, Velachery Main Road, Chennai – 600042, Tamil Nadu</span></div><div class="footer-contact-item"><i class="fa-solid fa-phone"></i><span>+91 98400 00000</span></div><div class="footer-contact-item"><i class="fa-solid fa-envelope"></i><span>hello@showlites.in</span></div><div class="footer-contact-item"><i class="fa-solid fa-clock"></i><span>Mon–Sat: 10am–7pm · Sun: 11am–4pm</span></div></div>
+</div>
+</div>
+<div class="footer-bottom"><p>© 2025 Showlites. All Rights Reserved. | Designed with ✦ for Elegance</p></div>
+</footer>
+
+<button id="back-top" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fa-solid fa-arrow-up"></i></button>
+
+<script>
+// ===== DATA =====
+const CATS = [
+  {
+    id:'ceiling', name:'Ceiling Lights', img:'Ceiling_lights/ceiling_light_',
+    items:[
+      {n:'Refined Ceiling Light',d:'Sculpted metallic rim with soft diffused center delivering elegant illumination.',sku:'78133-400X',size:'500×600mm',mat:'Metal'},
+      {n:'Sculptural Ceiling Light',d:'Organic stone-like glass forms creating warm artistic glow with natural aesthetic.',sku:'—',size:'Custom',mat:'Glass'},
+      {n:'Minimalist Flush Ceiling Light',d:'Frosted glass diffuser with subtle metal detailing providing soft even illumination.',sku:'W3093',size:'D25×H8cm',mat:'Iron+Marble'},
+      {n:'Modern Flush Ceiling Lights',d:'Marble-effect diffusers and gold rims offering soft elegant illumination in minimalist design.',sku:'C3063',size:'D40×H7cm',mat:'Iron+Marble'},
+      {n:'Sculptural Ceiling Light',d:'Layered translucent glass pieces with warm glow creating soft artistic statement overhead.',sku:'P3098',size:'D120×H60cm',mat:'Iron+Marble'},
+      {n:'Premium Rectangular Ceiling Light',d:'Crystal accents and soft illuminated center offering refined elegance for modern interiors.',sku:'972-L1100×W700',size:'1100×700mm',mat:'Glass'},
+      {n:'Luxurious Round Ceiling Light',d:'Layered crystal detailing and soft diffused center adding elegance and ambient glow.',sku:'972-1000',size:'972-800mm',mat:'Glass'},
+      {n:'Sleek Crystal Ceiling Light',d:'Polished silver base offering bright elegant illumination for contemporary spaces.',sku:'5648-400X',size:'5648-300X',mat:'Glass'},
+      {n:'Compact Crystal Ceiling Light',d:'Gold-finish base delivering sparkling illumination and touch of luxury to modern interiors.',sku:'5648-300X',size:'5648-300X',mat:'Glass'},
+      {n:'Panel Configuration',d:'Sleek circular ceiling light with soft even illumination. Minimalist design blends with modern calming interior.',sku:'MX907-600',size:'600×65mm',mat:'Aluminum'}
+    ]
+  },
+  {
+    id:'chandeliers', name:'Chandeliers', img:'Chandeliers/chand_',
+    items:[
+      {n:'Ring Chandelier',d:'AL-9005-4+6+8 RGD — Stainless steel multi-ring statement chandelier.',sku:'D400+600+800mm',size:'D400+600+800mm',mat:'Stainless Steel'},
+      {n:'French Gold with Crystal',d:'Grand tiered crystal chandelier with cascading strands creating luxurious centerpiece with brilliant illumination.',sku:'5798/10+5',size:'940×H830mm',mat:'Glass'},
+      {n:'Luxurious Crystal Chandelier',d:'Flowing circular forms designed to create striking focal point and radiant elegance in modern spaces.',sku:'5672-800L',size:'800+1000+1200mm',mat:'Glass'},
+      {n:'P3086 Gold Alabaster',d:'Gold metal panels and glowing alabaster shades create warm sophisticated ambiance with refined geometric design.',sku:'P3086',size:'D97.5×H26cm',mat:'Iron+Marble'},
+      {n:'E26/E27 Marble Sphere',d:'Glowing marble-textured spheres creating cloud-like sculptural centerpiece with warm diffused light.',sku:'P3081',size:'D12/15×H200cm',mat:'Iron+Marble'},
+      {n:'P3068 Marble Panel',d:'Marble-textured panels creating soft luxurious glow with modern geometric arrangement.',sku:'P3068',size:'D90×H200cm',mat:'Iron+Marble'},
+      {n:'P3097/R Frosted Disc',d:'Layered frosted discs creating soft artistic glow with circular gold frame adding luxurious touch.',sku:'P3097/R',size:'D60×H139cm',mat:'Iron+Marble'},
+      {n:'MX910 Ring Chandelier',d:'Modern circular chandelier casting soft balanced glow. Sleek ring design adds elegance and harmony.',sku:'MD910-10',size:'1000×1500mm',mat:'Aluminum'},
+      {n:'French Gold Linear',d:'French Gold material giving shiny luxurious look. Gold finish sparkles and adds elegance to any room.',sku:'Led 65W',size:'L1060×W280×H600mm',mat:'Metal+Acrylic'},
+      {n:'Crystal French Gold',d:'High-quality French Gold finish with rich elegant look. Warm shiny glow makes any room look special and classy.',sku:'11XE14',size:'D600×FH330×H900mm',mat:'Crystals'}
+    ]
+  },
+  {
+    id:'double', name:'Double Height Lights', img:'Double_Height_Lights/chand_dble_hgt_',
+    items:[
+      {n:'Double Height Chandelier AL-9024',d:'AL-9024 RGD stainless steel — dramatic statement piece for grand double-height spaces.',sku:'D750×H1800mm',size:'D750×H1800mm',mat:'Stainless Steel'},
+      {n:'Cascading Pendant Ribbed Globe',d:'Ribbed glass globes arranged vertically creating refined focal feature for double-height interiors.',sku:'D2152-8C',size:'D500×3500mm',mat:'Glass'},
+      {n:'Delicate Petal Pendant',d:'Petal-inspired forms with soft illumination adding elegant artistic touch to double-height spaces.',sku:'D2111-8',size:'680×3500mm',mat:'Glass'},
+      {n:'Linear Stepwise Pendant',d:'Geometric illuminated modules in stepwise arrangement creating dramatic focal point for staircases.',sku:'5150/10P',size:'500×3500mm Stepwise',mat:'Glass'},
+      {n:'Multi-drop Textured Sphere',d:'Softly glowing textured glass spheres designed to elevate double-height spaces with understated luxury.',sku:'NS60839-7LP',size:'D600×H3700mm',mat:'Glass'},
+      {n:'Multi-tier Metallic Glass',d:'Elongated metallic glass forms creating striking focal point for double-height spaces.',sku:'47W 3000K',size:'475×450×1500mm',mat:'Glass'},
+      {n:'Elegant Cascading Gold Accent',d:'Sculpted glass elements and slender gold accents perfect for enhancing double-height interiors.',sku:'D1069-8',size:'D600×3500mm',mat:'Glass'},
+      {n:'Dramatic Crystal Multi-Drop',d:'Cascading crystal elements creating luxurious statement in double-height spaces.',sku:'D2147-6+3+1',size:'D700×3500mm',mat:'Glass'},
+      {n:'P3079 Alabaster Pendants',d:'Slim alabaster pendant lights creating refined elegant visual flow with warm glow and gold accents.',sku:'P3079',size:'D6×H30cm',mat:'Iron+Marble'},
+      {n:'GD+GR Gold Pendants',d:'Elegant gold pendant lights with textured shades cascading gracefully in modern interior.',sku:'MD183-3',size:'270×1500mm',mat:'Iron+Glass'},
+      {n:'Chandeliers French Gold Crystal',d:'Warm soft glow ideal for living rooms, dining areas or hallways. Timeless classy look for your home.',sku:'Led',size:'D600×H3000mm',mat:'Metal+Crystals'}
+    ]
+  },
+  {
+    id:'fandeliers', name:'Fandeliers', img:'Fandeliers/fandeliers_',
+    items:[
+      {n:'Fan With Remote LL.12250',d:'Ornate flush-mount ceiling fan with antique white carved metal frame and decorative patterned finish.',sku:'LL.12250',size:'—',mat:'—'},
+      {n:'Cage Style Fan',d:'Compact cage-style ceiling fan with matte black mesh frame and warm integrated lighting. Wood-finish blades inside.',sku:'LL.12250',size:'—',mat:'—'},
+      {n:'Crystal Drop Fan LL.D3697',d:'Elegant chandelier ceiling fan with soft gold finish and cascading crystal drops for luxurious glow.',sku:'LL.D3697',size:'—',mat:'—'},
+      {n:'Woven Basket Fan',d:'Warm ambient ceiling fan with woven basket-style design creating soft golden glow. Blends natural texture with modern functionality.',sku:'LL.12250',size:'—',mat:'—'},
+      {n:'Gold Black Crystal Fan',d:'Luxurious ceiling fan chandelier with polished gold frame, striking black accents and cascading crystal drops.',sku:'—',size:'—',mat:'—'},
+      {n:'Vintage Wall Fan LL.D3698',d:'Sleek vintage-style wall fan with polished gold finish featuring elegant wooden-finish blades.',sku:'LL.D3698',size:'—',mat:'—'},
+      {n:'Antique Brass Wall Fan LL.D3699',d:'Vintage-style wall fan with antique brass finish featuring wooden-tone blades in protective metal cage.',sku:'LL.D3699',size:'—',mat:'—'},
+      {n:'Crystal Rod Fan LL.D3695',d:'Elegant chandelier ceiling fan with warm gold finish, vertical crystal rods and cascading crystal cluster centerpiece.',sku:'LL.D3695',size:'—',mat:'—'},
+      {n:'Crystal Mosaic Fan LL.D3412',d:'Luxurious chandelier ceiling fan with polished gold frame highlighted by shimmering crystal mosaic and soft ambient glow.',sku:'LL.D3412',size:'—',mat:'—'},
+      {n:'Ornate Walnut Fan 52"',d:'Five dark walnut blades and matte black motor housing with vintage-style clear glass light. Classic elegance with warm ambient lighting.',sku:'24W',size:'52 INCH',mat:'Wood'},
+      {n:'Venti 52" Fan',d:'Sleek ceiling fan with sculpted black blades delivering smooth silent airflow with contemporary edge.',sku:'RPM:250',size:'52 INCH',mat:'ABS'},
+      {n:'Amj-8526 Wooden Fan',d:'Sculptural ceiling fan with flowing wooden blades delivering smooth silent airflow with artistic elegance.',sku:'RPM:230',size:'52 INCH',mat:'ABS'},
+      {n:'Wall Fan 24"',d:'Compact wall-mounted fan with sculpted wooden blades bringing gentle airflow and timeless charm.',sku:'80W',size:'24 INCH',mat:'Wood'},
+      {n:'Amj Collection Fan',d:'Contemporary ceiling fan with sculpted wooden blades delivering smooth silent airflow with understated elegance.',sku:'RPM:250',size:'52 INCH',mat:'Wood'},
+      {n:'Gold Crystal Fan LL.D3414',d:'Striking chandelier ceiling fan with rich gold finish, sculpted metallic panels and dense cascading crystal drops.',sku:'LL.D3414',size:'—',mat:'—'},
+      {n:'Silver Crystal Fan LL.D3413',d:'Contemporary chandelier ceiling fan with sleek silver finish, precision-cut crystal rings and cascading crystal accents.',sku:'LL.D3413',size:'—',mat:'—'},
+      {n:'Textured Crystal Fan',d:'Elegant chandelier ceiling fan with refined gold finish, textured crystal panels and layered cascading crystal drops.',sku:'LL.D3413',size:'—',mat:'—'},
+      {n:'Black Crystal Fan LL.D3408',d:'Modern chandelier ceiling fan with sleek black finish, accented by sparkling crystal studs and cascading faceted crystal drops.',sku:'LL.D3408',size:'—',mat:'—'},
+      {n:'Frosted Petal Fan LL.D3411',d:'Luxurious chandelier ceiling fan with gold-toned frame, delicate frosted glass petals and cascading crystal drops.',sku:'LL.D3411',size:'—',mat:'—'},
+      {n:'Crystal Fan LL.D3410',d:'Elegant crystal chandelier ceiling fan with luxurious gold finish and cascading faceted crystals. Blends ambient lighting and smooth airflow.',sku:'LL.D3410',size:'—',mat:'—'}
+    ]
+  },
+  {
+    id:'multilayer', name:'Multilayer Lights', img:'Multilayer/chand_mul_',
+    items:[
+      {n:'Titanium Gold Clear Glass',d:'Circular titanium discs creating sophisticated play of light and texture.',sku:'B00985P-16',size:'D550×350/1500mm',mat:'Glass'},
+      {n:'Globe Pendant OYD-10652C',d:'Globe pendant lights in varied colors creating visual interest while providing warm ambient illumination.',sku:'10W3000K',size:'450×2500mm',mat:'Glass'},
+      {n:'Fluid Form Pendant D2110',d:'Fluid organic forms creating striking visual statement.',sku:'10W3000K',size:'350×1500mm',mat:'Glass'},
+      {n:'Vertical Pendant OYD-10708',d:'Sculptural vertical pendant with multiple glowing elements creating dramatic visual statement.',sku:'5W3000K',size:'230×1500mm',mat:'Glass'},
+      {n:'Sleek Cascading Glass Drop',d:'Faceted glass drops and warm metallic accents adding elegance to double-height stairway spaces.',sku:'CC7030',size:'90×110mm H3500',mat:'Glass'},
+      {n:'Whimsical Bird Form Pendant',d:'Bird-inspired golden forms bringing artistic charm and warm illumination to double-height spaces.',sku:'AGB70039',size:'500×2500mm',mat:'Glass'},
+      {n:'MD8009 Cascading Chandelier',d:'Multiple textured light tubes creating dramatic luxurious centerpiece. Layered design with warm glow adds elegance.',sku:'MD8009-A16',size:'800×4000mm',mat:'Iron+PMMA'}
+    ]
+  }
+];
+
+// Fandelier images have a special naming pattern
+function getImg(cat, i) {
+  if (cat.id === 'fandeliers') {
+    const n = i + 1;
+    return n === 11 ? 'Fandeliers/fandelier_11.png' : `Fandeliers/fandeliers_${n}.png`;
+  }
+  return `${cat.img}${i+1}.png`;
+}
+
+// ===== BUILD COLLECTIONS =====
+function buildCollections() {
+  const wrap = document.getElementById('collections-inner');
+  CATS.forEach(cat => {
+    const block = document.createElement('div');
+    block.className = 'category-block fade-up';
+    const sliderCards = cat.items.map((item,i) => `
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-front">
+            <div class="glitter-overlay"></div>
+            <img class="card-img" src="${getImg(cat,i)}" alt="${item.n}" loading="lazy"/>
+            <div class="card-front-body">
+              <h4>${item.n}</h4>
+              <p>${item.d}</p>
+              <div class="card-sku">SKU: ${item.sku}</div>
+            </div>
+          </div>
+          <div class="flip-back">
+            <div class="glitter-overlay back-glitter"></div>
+            <div class="flip-back-content">
+              <h4>${item.n}</h4>
+              <div class="flip-spec-list">
+                <div class="flip-spec"><span class="flip-spec-label">Description</span><span class="flip-spec-val">${item.d}</span></div>
+                <div class="flip-spec"><span class="flip-spec-label">SKU</span><span class="flip-spec-val">${item.sku}</span></div>
+                <div class="flip-spec"><span class="flip-spec-label">Dimensions</span><span class="flip-spec-val">${item.size}</span></div>
+                <div class="flip-spec"><span class="flip-spec-label">Material</span><span class="flip-spec-val">${item.mat}</span></div>
+              </div>
+              <a href="#enquiry" class="flip-back-cta">Request a Quote →</a>
+            </div>
+          </div>
+        </div>
+      </div>`).join('');
+    block.innerHTML = `
+      <div class="category-header">
+        <div><div class="category-title">✦ ${cat.name}</div></div>
+      </div>
+      <div class="card-slider-wrap">
+        <button class="slider-btn prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="card-slider">${sliderCards}</div>
+        <button class="slider-btn next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>`;
+    wrap.appendChild(block);
+  });
+  
+  // Slider functionality
+  document.querySelectorAll('.card-slider-wrap').forEach(wrap => {
+    const slider = wrap.querySelector('.card-slider');
+    wrap.querySelector('.prev').onclick = () => slider.scrollBy({left:-324,behavior:'smooth'});
+    wrap.querySelector('.next').onclick = () => slider.scrollBy({left:324,behavior:'smooth'});
+    
+    // Add click to toggle flip for mobile users (since they don't have hover)
+    slider.querySelectorAll('.flip-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (!e.target.closest('.flip-back-cta')) {
+           card.classList.toggle('flipped');
+        }
+      });
+    });
+  });
+}
+
+// ===== TESTIMONIALS CAROUSEL =====
+let teIdx=0,teTimer;
+const track=document.getElementById('testi-track');
+const cards=track.querySelectorAll('.testimonial-card');
+const dots=document.getElementById('testi-dots');
+cards.forEach((_,i)=>{const d=document.createElement('div');d.className='testi-dot'+(i===0?' active':'');d.onclick=()=>goTesti(i);dots.appendChild(d);});
+function goTesti(i){teIdx=i;track.style.transform=`translateX(-${i*100}%)`;dots.querySelectorAll('.testi-dot').forEach((d,j)=>d.classList.toggle('active',j===i));}
+function nextTesti(){goTesti((teIdx+1)%cards.length);}
+function startTeTimer(){teTimer=setInterval(nextTesti,4000);}
+startTeTimer();
+track.parentElement.addEventListener('mouseenter',()=>clearInterval(teTimer));
+track.parentElement.addEventListener('mouseleave',startTeTimer);
+document.getElementById('testi-prev').onclick=()=>{clearInterval(teTimer);goTesti((teIdx-1+cards.length)%cards.length);startTeTimer();};
+document.getElementById('testi-next').onclick=()=>{clearInterval(teTimer);goTesti((teIdx+1)%cards.length);startTeTimer();};
+
+// ===== SCROLL EFFECTS =====
+window.addEventListener('scroll',()=>{
+  const y=window.scrollY;
+  document.getElementById('navbar').classList.toggle('scrolled',y>80);
+  document.getElementById('back-top').classList.toggle('show',y>300);
+  // Active nav
+  const secs=['hero','about','collections','why','testimonials','enquiry'];
+  let cur='';
+  secs.forEach(id=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<120)cur=id;});
+  document.querySelectorAll('.nav-links a, .mobile-menu a').forEach(a=>{
+    a.classList.toggle('active',a.getAttribute('href')==='#'+cur);
+  });
+});
+
+// ===== INTERSECTION OBSERVER fade-up =====
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
+},{threshold:0.1});
+document.querySelectorAll('.fade-up').forEach(el=>io.observe(el));
+
+// ===== COUNTER =====
+function runCounter(container) {
+  container.querySelectorAll('.stat-num').forEach(el=>{
+    const target=+el.dataset.target;let start=0;
+    const step=()=>{
+      start+=Math.ceil(target/80);
+      if(start>=target){el.textContent=target+'+';}
+      else{el.textContent=start;requestAnimationFrame(step);}
+    };
+    requestAnimationFrame(step);
+  });
+}
+
+// Run hero stats immediately
+setTimeout(() => {
+  const heroStats = document.querySelector('.hero-stats-wrap');
+  if (heroStats) runCounter(heroStats);
+}, 500);
+
+const statIo=new IntersectionObserver(entries=>{
+  entries.forEach(entry => {
+    if(entry.isIntersecting && !entry.target.dataset.counted){
+      entry.target.dataset.counted = "true";
+      runCounter(entry.target);
+    }
+  });
+},{threshold:0.3});
+document.querySelectorAll('.about-stats').forEach(el => statIo.observe(el));
+
+// ===== SMOOTH SCROLL with offset =====
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const id=a.getAttribute('href').slice(1);
+    const el=document.getElementById(id);
+    if(!el)return;
+    e.preventDefault();
+    const top=el.getBoundingClientRect().top+window.scrollY-80;
+    window.scrollTo({top,behavior:'smooth'});
+  });
+});
+
+// ===== FORM VALIDATION =====
+function setField(id,ok,msg){
+  const grp=document.getElementById(id).closest('.form-group');
+  const err=grp.querySelector('.field-error');
+  const okEl=grp.querySelector('.field-ok');
+  grp.classList.toggle('valid',ok);
+  grp.classList.toggle('invalid',!ok);
+  err.textContent=ok?'':msg;
+  err.classList.toggle('show',!ok);
+  okEl.classList.toggle('show',ok);
+  return ok;
+}
+function validateField(id){
+  const v=(document.getElementById(id).value||'').trim();
+  if(id==='f-name'){
+    if(!v)return setField(id,false,'Full name is required.');
+    if(v.length<3)return setField(id,false,'Minimum 3 characters.');
+    if(!/^[a-zA-Z\s]+$/.test(v))return setField(id,false,'Letters and spaces only.');
+    return setField(id,true,'');
+  }
+  if(id==='f-email'){
+    if(!v)return setField(id,false,'Email is required.');
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v))return setField(id,false,'Enter a valid email.');
+    return setField(id,true,'');
+  }
+  if(id==='f-phone'){
+    if(!v)return setField(id,false,'Phone number is required.');
+    if(!/^[6-9]\d{9}$/.test(v))return setField(id,false,'Enter valid 10-digit Indian mobile number.');
+    return setField(id,true,'');
+  }
+  if(id==='f-city'){
+    if(!v||v.length<2)return setField(id,false,'Enter your city (min 2 chars).');
+    return setField(id,true,'');
+  }
+  if(id==='f-type'||id==='f-room'||id==='f-budget'){
+    if(!document.getElementById(id).value)return setField(id,false,'Please select an option.');
+    return setField(id,true,'');
+  }
+  if(id==='f-msg'){
+    if(!v||v.length<20)return setField(id,false,'Message must be at least 20 characters.');
+    return setField(id,true,'');
+  }
+}
+['f-name','f-email','f-phone','f-city','f-type','f-room','f-budget','f-msg'].forEach(id=>{
+  const el=document.getElementById(id);
+  el.addEventListener('blur',()=>validateField(id));
+  el.addEventListener('input',()=>{if(el.closest('.form-group').classList.contains('invalid'))validateField(id);});
+});
+document.getElementById('enquiry-form').addEventListener('submit',e=>{
+  e.preventDefault();
+  const fields=['f-name','f-email','f-phone','f-city','f-type','f-room','f-budget','f-msg'];
+  const results=fields.map(validateField);
+  if(results.some(r=>!r)){
+    const firstInvalid=document.querySelector('.form-group.invalid input, .form-group.invalid select, .form-group.invalid textarea');
+    if(firstInvalid)firstInvalid.scrollIntoView({behavior:'smooth',block:'center'});
+    return;
+  }
+  const name=document.getElementById('f-name').value.trim();
+  const phone=document.getElementById('f-phone').value.trim();
+  document.getElementById('success-msg').innerHTML=`Thank you, <strong>${name}</strong>! Your enquiry has been received.<br>Our team will contact you at <strong>${phone}</strong> within 24 hours.`;
+  document.getElementById('enquiry-form').style.display='none';
+  document.getElementById('form-success').classList.add('show');
+});
+document.getElementById('reset-form').onclick=()=>{
+  document.getElementById('enquiry-form').reset();
+  document.getElementById('enquiry-form').style.display='flex';
+  document.getElementById('form-success').classList.remove('show');
+  document.querySelectorAll('.form-group').forEach(g=>{g.classList.remove('valid','invalid');});
+  document.querySelectorAll('.field-error,.field-ok').forEach(el=>el.classList.remove('show'));
+};
+
+// ===== INIT =====
+buildCollections();
+// Re-observe new fade-up elements
+document.querySelectorAll('.fade-up').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
+
+
+
