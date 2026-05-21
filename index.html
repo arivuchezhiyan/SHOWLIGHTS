@@ -9,7 +9,7 @@
 <meta name="description" content="Showlites crafts bespoke chandeliers for homes, hotels & beyond. Premium ceiling lights, chandeliers, double-height pendants, fandeliers & multilayer lights across India."/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700&family=Dancing+Script:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700&family=Dancing+Script:wght@500;700&family=Pinyon+Script&family=Luxurious+Script&display=swap');
 
 /* ===== CSS VARIABLES ===== */
 :root {
@@ -97,45 +97,71 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 .btn-outline.large{padding:18px 48px;font-size:14px;background:rgba(255,255,255,0.05);backdrop-filter:blur(15px);-webkit-backdrop-filter:blur(15px);border:1px solid rgba(255,255,255,0.3);color:#fff;text-transform:uppercase;letter-spacing:3px;font-weight:800;border-radius:50px;transition:all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);}
 .btn-outline.large:hover{background:#fff;color:#0A0A0A;border-color:#fff;transform:translateY(-5px) scale(1.03);box-shadow:0 10px 40px rgba(255,255,255,0.2);}
 
-/* ===== HERO FLOATING WORDS ===== */
-.hero-floating-word {
+/* ===== FLOATING WORDS SYSTEM ===== */
+.floating-word {
   position: absolute;
-  font-family: 'Dancing Script', cursive;
-  font-size: clamp(28px, 3.5vw, 48px);
-  color: var(--accent);
-  text-shadow: 0 0 15px rgba(212,175,55,0.4);
-  opacity: 0.6;
+  font-family: 'Luxurious Script', cursive;
+  font-size: clamp(44px, 5.5vw, 84px);
+  color: #FFE082;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.3), 0 0 20px rgba(212, 175, 55, 0.15);
+  opacity: 0.85;
   pointer-events: none;
   z-index: 2;
   user-select: none;
+  white-space: nowrap;
+  animation: var(--float-anim, floatWord1) var(--float-dur, 7s) ease-in-out infinite,
+             subtleSparkle 4s ease-in-out infinite alternate;
 }
-.h-word-left {
+
+/* Animations */
+@keyframes floatWord1 {
+  0% { transform: translateY(0) rotate(-3deg); }
+  50% { transform: translateY(-12px) rotate(-1deg); }
+  100% { transform: translateY(0) rotate(-3deg); }
+}
+@keyframes floatWord2 {
+  0% { transform: translateY(0) rotate(3deg); }
+  50% { transform: translateY(-10px) rotate(5deg); }
+  100% { transform: translateY(0) rotate(3deg); }
+}
+@keyframes subtleSparkle {
+  0%, 100% {
+    text-shadow: 0 0 8px rgba(212, 175, 55, 0.3), 0 0 15px rgba(212, 175, 55, 0.15);
+    opacity: 0.8;
+  }
+  50% {
+    text-shadow: 0 0 15px rgba(255, 235, 160, 0.5), 0 0 25px rgba(212, 175, 55, 0.3);
+    opacity: 0.9;
+  }
+}
+
+/* Specific Positions */
+/* Hero Section */
+.hero-word-1 {
   left: 6%;
-  top: 35%;
-  animation: floatSlow 6s ease-in-out infinite;
+  top: 32%;
+  --float-anim: floatWord1;
+  --float-dur: 6s;
 }
-.h-word-right-1 {
+.hero-word-2 {
   right: 6%;
-  top: 25%;
-  animation: floatSlowAlt 7s ease-in-out infinite;
+  top: 24%;
+  --float-anim: floatWord2;
+  --float-dur: 7s;
 }
-.h-word-right-2 {
+.hero-word-3 {
   right: 8%;
-  top: 60%;
-  animation: floatSlow 8s ease-in-out infinite;
+  top: 62%;
+  --float-anim: floatWord1;
+  --float-dur: 8s;
+}
+.hero-word-4 {
+  left: 8%;
+  top: 55%;
+  --float-anim: floatWord2;
+  --float-dur: 7.5s;
 }
 
-@keyframes floatSlow {
-  0% { transform: translateY(0) rotate(-4deg); }
-  50% { transform: translateY(-12px) rotate(-2deg); }
-  100% { transform: translateY(0) rotate(-4deg); }
-}
-
-@keyframes floatSlowAlt {
-  0% { transform: translateY(0) rotate(4deg); }
-  50% { transform: translateY(-10px) rotate(6deg); }
-  100% { transform: translateY(0) rotate(4deg); }
-}
 
 
 
@@ -174,7 +200,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 }
 
 /* ===== ABOUT SECTION ===== */
-#about{padding:40px 0;background:var(--bg-primary);}
+#about{position:relative;overflow:hidden;padding:40px 0;background:var(--bg-primary);}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
 .about-text .gold-line{margin:20px 0 28px;}
 .about-text p{color:var(--text-secondary);line-height:1.8;margin-bottom:18px;font-size:16px;}
@@ -190,7 +216,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 .about-img-wrap::after{content:'';position:absolute;inset:-16px;border:1px solid rgba(212,175,55,0.08);border-radius:var(--radius-sm);transform:translate(8px,8px);pointer-events:none;}
 
 /* ===== COLLECTIONS SECTION ===== */
-#collections{padding:40px 0;background:linear-gradient(180deg,var(--bg-primary) 0%,#0d0b06 100%);}
+#collections{position:relative;overflow:hidden;padding:40px 0;background:linear-gradient(180deg,var(--bg-primary) 0%,#0d0b06 100%);}
 #collections-inner{padding:0 5vw; max-width:100%;}
 .section-header{text-align:center;margin-bottom:30px;}
 .section-header .gold-line{margin:20px auto;}
@@ -253,6 +279,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
   border-top: 1px solid var(--border-subtle);
   text-align: center;
   overflow: hidden; /* Prevent horizontal page scroll on edge cases */
+  position: relative;
 }
 .partners-header {
   margin-bottom: 30px;
@@ -372,6 +399,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
   padding: 50px 0 45px;
   border-top: 1px solid var(--border-subtle);
   position: relative;
+  overflow: hidden;
 }
 #why .container {
   width: 100%;
@@ -478,7 +506,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 
 
 /* ===== TESTIMONIALS ===== */
-#testimonials{padding:40px 0;background:linear-gradient(180deg,#0d0b06 0%,var(--bg-primary) 100%);}
+#testimonials{position:relative;overflow:hidden;padding:40px 0;background:linear-gradient(180deg,#0d0b06 0%,var(--bg-primary) 100%);}
 .testimonial-carousel{position:relative;overflow:hidden;margin-top:30px;}
 .testimonial-track{display:flex;transition:transform 0.5s ease;}
 .testimonial-card{flex:0 0 100%;padding:0 80px;}
@@ -495,7 +523,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 .testi-dot.active{background:var(--accent);width:24px;border-radius:4px;}
 
 /* ===== FORM SECTION ===== */
-#enquiry{padding:40px 0;background:var(--bg-surface);}
+#enquiry{position:relative;overflow:hidden;padding:40px 0;background:var(--bg-surface);}
 .form-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:40px;align-items:start;margin-top:30px;}
 .form-deco{position:relative;}
 .form-deco-img{width:100%;height:500px;object-fit:cover;border-radius:var(--radius-sm);box-shadow:0 0 60px rgba(212,175,55,0.15);}
@@ -676,7 +704,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
   .footer-grid{grid-template-columns:1fr 1fr;gap:40px;}
   .gallery-grid{columns:3;}
   .desktop-only-text{display:none !important;}
-  .hero-floating-word { display: none !important; }
+  .floating-word { display: none !important; }
 }
 @media(max-width:768px){
   .nav-logo{font-size:24px;}
@@ -915,9 +943,10 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
     <img src="Chandeliers/chand_1.png" alt="Showlites luxury chandelier"/>
     <div class="hero-overlay"></div>
   </div>
-  <div class="hero-floating-word h-word-left">Premium</div>
-  <div class="hero-floating-word h-word-right-1">Bespoke</div>
-  <div class="hero-floating-word h-word-right-2">Exquisite</div>
+  <div class="floating-word hero-word-1">Luxury</div>
+  <div class="floating-word hero-word-2">Bespoke</div>
+  <div class="floating-word hero-word-3">Masterpiece</div>
+  <div class="floating-word hero-word-4">Grandeur</div>
   <div class="hero-content fade-up visible">
     <h1 class="hero-title">Masterpieces of<br><span>Illumination</span></h1>
     <p class="hero-sub">Transform your space with our breathtaking, handcrafted chandeliers designed to command attention and radiate absolute luxury.</p>
