@@ -476,21 +476,73 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 .form-group textarea{resize:vertical;min-height:120px;}
 /* -- focus state -- */
 .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:#D4AF37;background:#332b16;box-shadow:0 0 0 3px rgba(212,175,55,0.15);}
-.form-group.valid input,.form-group.valid select,.form-group.valid textarea{border-color:#4caf50;}
-.form-group.invalid input,.form-group.invalid select,.form-group.invalid textarea{border-color:#f44336;}
-.field-error{font-size:12px;color:#ff6b6b;margin-top:4px;display:none;}
-.field-error.show{display:block;}
-.field-ok{font-size:12px;color:#69db7c;margin-top:4px;display:none;}
-.field-ok.show{display:block;}
 /* -- bold gold button -- */
 .btn-submit{background:var(--accent);color:#0A0A0A;padding:16px 32px;border-radius:8px;font-family:'Manrope',sans-serif;font-size:14px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;width:100%;border:none;cursor:pointer;transition:all 0.35s ease;box-shadow:0 4px 12px rgba(0,0,0,0.4);}
 .btn-submit:hover{background:var(--accent-bright);transform:translateY(-2px);box-shadow:0 6px 20px rgba(212,175,55,0.3);}
 /* -- form keyframes -- */
 @keyframes goldBorderShift{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
-.form-success{display:none;text-align:center;padding:48px 32px;background:var(--bg-card);border:1px solid rgba(76,175,80,0.3);border-radius:var(--radius-md);}
-.form-success.show{display:block;}
-.form-success h3{font-family:'Playfair Display',serif;font-size:26px;color:var(--accent);margin-bottom:16px;}
-.form-success p{color:var(--text-secondary);line-height:1.7;margin-bottom:24px;}
+
+/* ===== POPUP OVERLAY ===== */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 100000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+.popup-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.popup-content {
+  background: #16130b;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-lg);
+  padding: 40px 30px;
+  max-width: 420px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 30px rgba(212,175,55,0.15);
+  transform: scale(0.8) translateY(20px);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.popup-overlay.active .popup-content {
+  transform: scale(1) translateY(0);
+}
+.popup-icon {
+  font-size: 68px;
+  color: #4caf50;
+  margin-bottom: 20px;
+}
+.popup-icon.warning {
+  color: var(--accent);
+}
+.popup-content h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+.popup-content p {
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+.popup-content strong {
+  color: var(--accent);
+}
+.popup-content button {
+  min-width: 120px;
+  margin: 0 auto;
+}
 
 /* ===== FOOTER ===== */
 #footer{background:var(--bg-primary);border-top:1px solid var(--border-subtle);padding:40px 0 0;}
@@ -804,13 +856,12 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 <div class="form-quote"><p>"Light is not merely the absence of darkness — it is the art of transforming a space into an experience. At Showlites, we sculpt light."</p></div>
 </div>
 <div class="form-wrap">
-<div class="form-success" id="form-success"><h3>✅ Enquiry Received!</h3><p id="success-msg"></p><button class="btn-primary" id="reset-form" style="margin:0 auto;">Submit Another Enquiry</button></div>
 <form id="enquiry-form" novalidate>
-<div class="form-group"><label for="f-name">Full Name</label><input type="text" id="f-name" placeholder="Your full name"/><span class="field-error" id="err-name"></span><span class="field-ok" id="ok-name">✓ Looks good</span></div>
-<div class="form-group"><label for="f-phone">Phone Number</label><input type="tel" id="f-phone" placeholder="10-digit mobile number"/><span class="field-error" id="err-phone"></span><span class="field-ok" id="ok-phone">✓ Valid number</span></div>
-<div class="form-group"><label for="f-city">City / Location</label><input type="text" id="f-city" placeholder="Your city"/><span class="field-error" id="err-city"></span><span class="field-ok" id="ok-city">✓ Got it</span></div>
-<div class="form-group"><label for="f-room">Room Type</label><select id="f-room"><option value="">-- Select Room --</option><option>Living Room</option><option>Dining Room</option><option>Bedroom</option><option>Hotel Lobby</option><option>Office</option><option>Restaurant</option><option>Other</option></select><span class="field-error" id="err-room"></span><span class="field-ok" id="ok-room">✓ Selected</span></div>
-<div class="form-group"><label for="f-budget">Budget Range</label><select id="f-budget"><option value="">-- Select Budget --</option><option>Under ₹10,000</option><option>₹10,000 – ₹25,000</option><option>₹25,000 – ₹50,000</option><option>₹50,000 – ₹1,00,000</option><option>Above ₹1,00,000</option></select><span class="field-error" id="err-budget"></span><span class="field-ok" id="ok-budget">✓ Selected</span></div>
+<div class="form-group"><label for="f-name">Full Name</label><input type="text" id="f-name" placeholder="Your full name"/></div>
+<div class="form-group"><label for="f-phone">Phone Number</label><input type="tel" id="f-phone" placeholder="10-digit mobile number" maxlength="10" inputmode="numeric"/></div>
+<div class="form-group"><label for="f-city">City / Location</label><input type="text" id="f-city" placeholder="Your city"/></div>
+<div class="form-group"><label for="f-room">Room Type</label><select id="f-room"><option value="">-- Select Room --</option><option>Living Room</option><option>Dining Room</option><option>Bedroom</option><option>Hotel Lobby</option><option>Office</option><option>Restaurant</option><option>Other</option></select></div>
+<div class="form-group"><label for="f-budget">Budget Range</label><select id="f-budget"><option value="">-- Select Budget --</option><option>Under ₹10,000</option><option>₹10,000 – ₹25,000</option><option>₹25,000 – ₹50,000</option><option>₹50,000 – ₹1,00,000</option><option>Above ₹1,00,000</option></select></div>
 <button type="submit" class="btn-submit">Send My Enquiry →</button>
 </form>
 </div>
@@ -1049,6 +1100,28 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
   <a href="https://wa.me/919600199307" target="_blank" class="float-whatsapp" aria-label="WhatsApp Showlites"><i class="fa-brands fa-whatsapp"></i></a>
 </div>
 
+<!-- ===== ENQUIRY SUCCESS & WARNING POPUPS ===== -->
+<div id="success-popup" class="popup-overlay">
+  <div class="popup-content">
+    <div class="popup-icon">
+      <i class="fa-regular fa-circle-check"></i>
+    </div>
+    <h3>Enquiry Sent Successfully!</h3>
+    <p id="popup-message"></p>
+    <button id="close-popup-btn" class="btn-primary" style="margin: 0 auto;">OK</button>
+  </div>
+</div>
+
+<div id="warning-popup" class="popup-overlay">
+  <div class="popup-content">
+    <div class="popup-icon warning">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+    </div>
+    <h3>Please check your input</h3>
+    <p id="warning-message"></p>
+    <button id="close-warning-btn" class="btn-outline" style="margin: 0 auto;">OK</button>
+  </div>
+</div>
 
 <script>
 // ===== DATA =====
@@ -1252,66 +1325,62 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   });
 });
 
-// ===== FORM VALIDATION =====
-function setField(id,ok,msg){
-  const grp=document.getElementById(id).closest('.form-group');
-  const err=grp.querySelector('.field-error');
-  const okEl=grp.querySelector('.field-ok');
-  grp.classList.toggle('valid',ok);
-  grp.classList.toggle('invalid',!ok);
-  err.textContent=ok?'':msg;
-  err.classList.toggle('show',!ok);
-  okEl.classList.toggle('show',ok);
-  return ok;
+// ===== FORM VALIDATION AND SUBMISSION =====
+const phoneInput = document.getElementById('f-phone');
+if (phoneInput) {
+  phoneInput.addEventListener('input', () => {
+    // Only numbers, max 10 digits
+    phoneInput.value = phoneInput.value.replace(/\D/g, '').slice(0, 10);
+  });
 }
-function validateField(id){
-  const v=(document.getElementById(id).value||'').trim();
-  if(id==='f-name'){
-    if(!v)return setField(id,false,'Full name is required.');
-    if(v.length<3)return setField(id,false,'Minimum 3 characters.');
-    if(!/^[a-zA-Z\s]+$/.test(v))return setField(id,false,'Letters and spaces only.');
-    return setField(id,true,'');
-  }
-  if(id==='f-phone'){
-    if(!v)return setField(id,false,'Phone number is required.');
-    if(!/^[6-9]\d{9}$/.test(v))return setField(id,false,'Enter valid 10-digit Indian mobile number.');
-    return setField(id,true,'');
-  }
-  if(id==='f-city'){
-    if(!v||v.length<2)return setField(id,false,'Enter your city (min 2 chars).');
-    return setField(id,true,'');
-  }
-  if(id==='f-room'||id==='f-budget'){
-    if(!document.getElementById(id).value)return setField(id,false,'Please select an option.');
-    return setField(id,true,'');
-  }
-}
-['f-name','f-phone','f-city','f-room','f-budget'].forEach(id=>{
-  const el=document.getElementById(id);
-  el.addEventListener('blur',()=>validateField(id));
-  el.addEventListener('input',()=>{if(el.closest('.form-group').classList.contains('invalid'))validateField(id);});
-});
-document.getElementById('enquiry-form').addEventListener('submit',e=>{
+
+document.getElementById('enquiry-form').addEventListener('submit', e => {
   e.preventDefault();
-  const fields=['f-name','f-phone','f-city','f-room','f-budget'];
-  const results=fields.map(validateField);
-  if(results.some(r=>!r)){
-    const firstInvalid=document.querySelector('.form-group.invalid input, .form-group.invalid select, .form-group.invalid textarea');
-    if(firstInvalid)firstInvalid.scrollIntoView({behavior:'smooth',block:'center'});
+  
+  const name = document.getElementById('f-name').value.trim();
+  const phone = document.getElementById('f-phone').value.trim();
+  const city = document.getElementById('f-city').value.trim();
+  const room = document.getElementById('f-room').value;
+  const budget = document.getElementById('f-budget').value;
+  
+  let errors = [];
+  if (!name || name.length < 3 || !/^[a-zA-Z\s]+$/.test(name)) {
+    errors.push("Enter a valid name (at least 3 letters).");
+  }
+  if (!phone || phone.length !== 10) {
+    errors.push("Enter a valid 10-digit phone number.");
+  }
+  if (!city || city.length < 2) {
+    errors.push("Enter your city/location.");
+  }
+  if (!room) {
+    errors.push("Select a room type.");
+  }
+  if (!budget) {
+    errors.push("Select your budget range.");
+  }
+  
+  if (errors.length > 0) {
+    // Show validation errors in custom warning popup
+    document.getElementById('warning-message').innerHTML = errors.map(err => `• ${err}`).join('<br>');
+    document.getElementById('warning-popup').classList.add('active');
     return;
   }
-  const name=document.getElementById('f-name').value.trim();
-  const phone=document.getElementById('f-phone').value.trim();
-  document.getElementById('success-msg').innerHTML=`Thank you, <strong>${name}</strong>! Your enquiry has been received.<br>Our team will contact you at <strong>${phone}</strong> within 24 hours.`;
-  document.getElementById('enquiry-form').style.display='none';
-  document.getElementById('form-success').classList.add('show');
-});
-document.getElementById('reset-form').onclick=()=>{
+  
+  // Show success popup with green tick
+  document.getElementById('popup-message').innerHTML = `Thank you, <strong>${name}</strong>! Your enquiry has been received.<br>Our team will contact you at <strong>${phone}</strong> within 24 hours.`;
+  document.getElementById('success-popup').classList.add('active');
+  
+  // Reset form
   document.getElementById('enquiry-form').reset();
-  document.getElementById('enquiry-form').style.display='flex';
-  document.getElementById('form-success').classList.remove('show');
-  document.querySelectorAll('.form-group').forEach(g=>{g.classList.remove('valid','invalid');});
-  document.querySelectorAll('.field-error,.field-ok').forEach(el=>el.classList.remove('show'));
+});
+
+// Popup close handlers
+document.getElementById('close-popup-btn').onclick = () => {
+  document.getElementById('success-popup').classList.remove('active');
+};
+document.getElementById('close-warning-btn').onclick = () => {
+  document.getElementById('warning-popup').classList.remove('active');
 };
 
 // ===== INIT =====
