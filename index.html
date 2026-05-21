@@ -83,19 +83,31 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 .mobile-menu a:hover,.mobile-menu a.active{color:var(--accent);}
 
 /* ===== HERO SECTION ===== */
-#hero{position:relative;height:100vh;min-height:850px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#000;}
+#hero{position:relative;height:100vh;min-height:850px;display:flex;align-items:center;justify-content:flex-end;overflow:hidden;background:#000;}
 .hero-bg{position:absolute;inset:0;z-index:0;display:flex;align-items:center;justify-content:center;background:#000;}
 .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center;max-height:100vh;}
 .hero-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.9) 100%);}
-.hero-content{position:relative;z-index:2;text-align:center;width:100%;max-width:1200px;padding:0 24px;margin-top:10vh;}
-.hero-title{font-family:'Playfair Display',serif;font-size:clamp(50px,8vw,100px);font-weight:700;line-height:1.1;letter-spacing:-0.02em;color:#fff;margin-bottom:24px;text-shadow:0 4px 20px rgba(0,0,0,0.8);}
-.hero-title span{color:var(--accent);text-shadow:0 4px 20px rgba(0,0,0,0.8), 0 0 15px rgba(212,175,55,0.4);display:inline-block;padding-bottom:10px;}
-.hero-sub{font-size:22px;color:#e0e0e0;max-width:700px;margin:0 auto 50px;line-height:1.7;font-weight:400;text-shadow:0 2px 10px rgba(0,0,0,0.8);}
-.hero-btns{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;}
+.hero-content{position:relative;z-index:2;text-align:left;width:100%;max-width:860px;padding:0 24px;margin-top:10vh;margin-left:auto;margin-right:8%;opacity:0;animation:popFromLeft 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(44px, 5.8vw, 80px);font-weight:700;line-height:0.95;letter-spacing:-0.02em;color:#fff;margin-bottom:24px;text-shadow:0 4px 20px rgba(0,0,0,0.8);}
+.hero-title .title-main{display:block;white-space:nowrap;}
+.hero-title .title-accent{background:var(--gold-shine);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-style:italic;font-weight:500;display:inline-block;padding-bottom:2px;filter:drop-shadow(0 4px 15px rgba(212,175,55,0.3));}
+.hero-sub{font-size:22px;color:#e0e0e0;max-width:700px;margin:0 0 50px;line-height:1.7;font-weight:400;text-shadow:0 2px 10px rgba(0,0,0,0.8);}
+.hero-btns{display:flex;gap:24px;justify-content:flex-start;flex-wrap:wrap;}
 .btn-primary.large{padding:18px 48px;font-size:14px;background:rgba(212,175,55,0.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#0A0A0A;text-transform:uppercase;letter-spacing:3px;font-weight:800;box-shadow:0 10px 40px rgba(212,175,55,0.3);border-radius:50px;border:1px solid rgba(255,255,255,0.2);transition:all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);}
 .btn-primary.large:hover{background:var(--accent-bright);transform:translateY(-5px) scale(1.03);box-shadow:0 15px 50px rgba(242,202,80,0.6);}
 .btn-outline.large{padding:18px 48px;font-size:14px;background:rgba(255,255,255,0.05);backdrop-filter:blur(15px);-webkit-backdrop-filter:blur(15px);border:1px solid rgba(255,255,255,0.3);color:#fff;text-transform:uppercase;letter-spacing:3px;font-weight:800;border-radius:50px;transition:all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);}
 .btn-outline.large:hover{background:#fff;color:#0A0A0A;border-color:#fff;transform:translateY(-5px) scale(1.03);box-shadow:0 10px 40px rgba(255,255,255,0.2);}
+
+@keyframes popFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-150px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 
 /* ===== FLOATING WORDS SYSTEM ===== */
 .floating-word {
@@ -200,20 +212,83 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 }
 
 /* ===== ABOUT SECTION ===== */
-#about{position:relative;overflow:hidden;padding:40px 0;background:var(--bg-primary);}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
-.about-text .gold-line{margin:20px 0 28px;}
-.about-text p{color:var(--text-secondary);line-height:1.8;margin-bottom:18px;font-size:16px;}
-.about-stats{display:flex;gap:40px;margin-top:40px;padding-top:40px;border-top:1px solid var(--border-subtle);}
-.stat-item{text-align:center;}
-.stat-num{font-family:'Playfair Display',serif;font-size:40px;font-weight:700;color:var(--accent);line-height:1;}
-.stat-label{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-top:6px;}
-.about-img-wrap{position:relative;}
-.about-img-wrap a{display:block;width:100%;height:100%;overflow:hidden;border-radius:var(--radius-sm);}
-.about-img-wrap img{width:100%;height:600px;object-fit:cover;border-radius:var(--radius-sm);box-shadow:0 0 60px rgba(212,175,55,0.15);transition:transform var(--transition), filter var(--transition);}
-.about-img-wrap a:hover img{transform:scale(1.03);filter:brightness(1.1);}
-.about-img-wrap::before{content:'';position:absolute;inset:-16px;border:1px solid var(--border-subtle);border-radius:var(--radius-sm);pointer-events:none;}
-.about-img-wrap::after{content:'';position:absolute;inset:-16px;border:1px solid rgba(212,175,55,0.08);border-radius:var(--radius-sm);transform:translate(8px,8px);pointer-events:none;}
+/* ===== ABOUT SECTION ===== */
+#about {
+  position: relative;
+  overflow: hidden;
+  padding: 100px 0;
+  background: linear-gradient(rgba(10, 10, 10, 0.45), rgba(10, 10, 10, 0.5)), url('page3_background.png') no-repeat left center;
+  background-size: cover;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+}
+#about .container {
+  max-width: 100%;
+  width: 100%;
+  padding: 0;
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  width: 100%;
+  align-items: center;
+}
+.about-spacer {
+  /* empty spacer to prevent text from going left into chandelier area */
+}
+.about-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+.about-text {
+  width: 100%;
+  max-width: 680px;
+  margin-left: auto;
+}
+.about-text .gold-line {
+  margin: 20px 0 28px;
+}
+.about-text p {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 18px;
+  font-size: 16px;
+}
+.about-stats {
+  width: 100%;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: 60px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 30px;
+  border-top: 1px solid var(--border-subtle);
+}
+.stat-item {
+  flex: 1;
+  text-align: center;
+}
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+}
+.stat-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
 
 /* ===== COLLECTIONS SECTION ===== */
 #collections{position:relative;overflow:hidden;padding:40px 0;background:linear-gradient(180deg,var(--bg-primary) 0%,#0d0b06 100%);}
@@ -240,6 +315,11 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 .flip-card:hover .flip-card-inner,
 .flip-card.flipped .flip-card-inner {transform:rotateY(180deg);}
 .flip-front,.flip-back{position:absolute;inset:0;border-radius:var(--radius-md);backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;}
+.flip-back{pointer-events:none;}
+.flip-card.flipped .flip-back,
+.flip-card:hover .flip-back{pointer-events:auto;}
+.flip-card.flipped .flip-front,
+.flip-card:hover .flip-front{pointer-events:none;}
 
 /* FRONT — Black royal with silver glitter */
 .flip-front{background:#0A0A0A;border:1px solid rgba(192,192,192,0.15);}
@@ -433,33 +513,31 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 }
 .why-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  margin-top: 30px;
-  row-gap: 30px;
+  grid-template-columns: repeat(6, 1fr);
+  margin-top: 24px;
 }
 .why-item {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 30px 40px;
+  padding: 16px 8px;
   transition: transform 0.3s ease;
 }
 .why-item:hover {
   transform: translateY(-5px);
 }
-.why-item:nth-child(3n+2) {
+.why-item:not(:first-child) {
   border-left: 1px dashed rgba(212, 175, 55, 0.25);
-  border-right: 1px dashed rgba(212, 175, 55, 0.25);
 }
 .why-item-icon {
-  font-size: 42px;
+  font-size: 36px;
   color: var(--accent);
-  margin-bottom: 24px;
+  margin-bottom: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 60px;
+  height: 48px;
   transition: transform 0.3s ease;
 }
 .why-item:hover .why-item-icon {
@@ -467,7 +545,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 }
 .why-item h3 {
   font-family: 'Playfair Display', serif;
-  font-size: 20px;
+  font-size: clamp(14px, 1.1vw, 17px);
   font-weight: 600;
   color: var(--text-primary);
   margin: 0;
@@ -523,21 +601,72 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 .testi-dot.active{background:var(--accent);width:24px;border-radius:4px;}
 
 /* ===== FORM SECTION ===== */
-#enquiry{position:relative;overflow:hidden;padding:40px 0;background:var(--bg-surface);}
-.form-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:40px;align-items:start;margin-top:30px;}
-.form-deco{position:relative;}
-.form-deco-img{width:100%;height:500px;object-fit:cover;border-radius:var(--radius-sm);box-shadow:0 0 60px rgba(212,175,55,0.15);}
-.form-quote{margin-top:32px;padding:24px;border-left:3px solid var(--accent);background:var(--bg-card);border-radius:0 var(--radius-sm) var(--radius-sm) 0;}
-.form-quote p{font-family:'Playfair Display',serif;font-size:18px;font-style:italic;color:var(--text-secondary);line-height:1.6;}
-/* -- form card with animated gold border -- */
-.form-wrap{padding:1.5px;position:relative;border-radius:16px;overflow:hidden;background:linear-gradient(135deg,#a6822c,#4d4635,#a6822c);box-shadow:0 15px 40px rgba(0,0,0,0.6),0 0 15px rgba(212,175,55,0.08);}
-.form-wrap form{position:relative;z-index:1;display:flex;flex-direction:column;gap:22px;background:#18140c;border-radius:14px;padding:44px 36px;}
+/* ===== FORM SECTION ===== */
+#enquiry {
+  position: relative;
+  overflow: hidden;
+  padding: 80px 0;
+  background: linear-gradient(rgba(10, 10, 10, 0.45), rgba(10, 10, 10, 0.45)), url('page2_background.png') no-repeat center center;
+  background-size: cover;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+}
+#enquiry .container {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+.form-grid {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 80px;
+  width: 100%;
+}
+.form-wrap {
+  max-width: 440px;
+  width: 100%;
+  padding: 1.5px;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background: linear-gradient(135deg,#a6822c,#4d4635,#a6822c);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.6),0 0 15px rgba(212,175,55,0.08);
+  flex-shrink: 0;
+}
+.form-wrap form {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: rgba(24, 20, 12, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 10px;
+  padding: 24px 28px;
+}
+.form-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0px;
+}
+.form-subtitle {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
 .form-wrap::before,.form-wrap::after{display:none;}
 /* -- labels -- */
-.form-group{display:flex;flex-direction:column;gap:6px;position:relative;}
-.form-group label{font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#F0E6D0;font-family:'Manrope',sans-serif;}
+.form-group{display:flex;flex-direction:column;gap:4px;position:relative;}
+.form-group label{font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#F0E6D0;font-family:'Manrope',sans-serif;}
 /* -- clean visible fields -- */
-.form-group input,.form-group select,.form-group textarea{background:#2a2210;border:2px solid rgba(212,175,55,0.5);border-radius:8px;color:#FFFFFF;font-family:'Manrope',sans-serif;font-size:16px;padding:15px 18px;transition:all 0.3s ease;outline:none;width:100%;}
+.form-group input,.form-group select,.form-group textarea{background:#2a2210;border:1.5px solid rgba(212, 175, 55, 0.4);border-radius:6px;color:#FFFFFF;font-family:'Manrope',sans-serif;font-size:14px;padding:10px 14px;transition:all 0.3s ease;outline:none;width:100%;}
 .form-group input::placeholder,.form-group textarea::placeholder{color:#9e8e6c;font-style:normal;}
 .form-group select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' fill='%23D4AF37'%3E%3Cpath d='M0 0l7 9 7-9z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 18px center;padding-right:44px;color:#E0D5B8;}
 .form-group select option{background:#2a2210;color:#FFFFFF;}
@@ -545,8 +674,70 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 /* -- focus state -- */
 .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:#D4AF37;background:#332b16;box-shadow:0 0 0 3px rgba(212,175,55,0.15);}
 /* -- bold gold button -- */
-.btn-submit{background:var(--accent);color:#0A0A0A;padding:16px 32px;border-radius:8px;font-family:'Manrope',sans-serif;font-size:14px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;width:100%;border:none;cursor:pointer;transition:all 0.35s ease;box-shadow:0 4px 12px rgba(0,0,0,0.4);}
+.btn-submit{background:var(--accent);color:#0A0A0A;padding:12px 24px;border-radius:6px;font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;width:100%;border:none;cursor:pointer;transition:all 0.35s ease;box-shadow:0 4px 12px rgba(0,0,0,0.4);margin-top:4px;}
 .btn-submit:hover{background:var(--accent-bright);transform:translateY(-2px);box-shadow:0 6px 20px rgba(212,175,55,0.3);}
+
+/* -- branding info in enquiry section -- */
+.enquiry-info {
+  max-width: 520px;
+  color: var(--text-primary);
+  opacity: 0.95;
+}
+.info-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.info-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 700;
+  line-height: 1.2;
+  color: #FFFFFF;
+}
+.enquiry-info .gold-line {
+  width: 50px;
+  height: 1px;
+  background: var(--accent);
+  margin: 18px 0;
+}
+.info-desc {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 28px;
+}
+.info-features {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.info-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+.info-feature-item i {
+  font-size: 20px;
+  color: var(--accent);
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+.info-feature-item h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin-bottom: 4px;
+}
+.info-feature-item p {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
 /* -- form keyframes -- */
 @keyframes goldBorderShift{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
 
@@ -699,12 +890,77 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 @media(max-width:1024px){
   .container{padding:0 32px;}
   #navbar{padding:0 32px;}
-  .about-grid{gap:48px;}
-  .why-grid{grid-template-columns:repeat(2,1fr);}
+  .hero-content {
+    max-width: 580px;
+    margin-right: 4%;
+  }
+  .hero-title {
+    font-size: clamp(36px, 5vw, 64px);
+  }
+  .why-grid {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 20px;
+  }
+  .why-item {
+    border: none !important;
+    padding: 20px 16px;
+  }
+  .why-item:nth-child(odd) {
+    border-right: 1px dashed rgba(212, 175, 55, 0.2) !important;
+  }
+  .why-item:nth-child(-n+4) {
+    border-bottom: 1px dashed rgba(212, 175, 55, 0.2) !important;
+  }
   .footer-grid{grid-template-columns:1fr 1fr;gap:40px;}
   .gallery-grid{columns:3;}
   .desktop-only-text{display:none !important;}
   .floating-word { display: none !important; }
+
+  #about {
+    padding: 80px 0;
+    min-height: auto;
+    background: linear-gradient(rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 0.85)), url('page3_background.png') no-repeat center center;
+    background-size: cover;
+  }
+  #about .container {
+    max-width: 100%;
+    width: 100%;
+    padding: 0 32px;
+  }
+  .about-spacer {
+    display: none;
+  }
+  .about-grid {
+    display: block;
+    width: 100%;
+  }
+  .about-content {
+    width: 100%;
+    text-align: center;
+    display: block;
+    padding-right: 0;
+  }
+  .about-text {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    text-align: center;
+  }
+  .about-text .gold-line {
+    margin: 20px auto 28px;
+  }
+  .about-stats {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+    margin-top: 30px;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .stat-item {
+    text-align: center !important;
+  }
 }
 @media(max-width:768px){
   .nav-logo{font-size:24px;}
@@ -724,17 +980,31 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
     margin-top: 0;
     padding: 0 16px;
     margin-bottom: 20px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 1;
+    animation: none;
+    transform: none;
   }
   .hero-title{font-size: clamp(26px, 7vw, 36px); line-height: 1.25;}
-  .hero-sub{font-size: 14px; margin-bottom: 24px; max-width: 100%;}
+  .hero-sub{font-size: 14px; margin: 0 auto 24px; max-width: 100%;}
+  .hero-btns{justify-content: center;}
   .btn-primary.large, .btn-outline.large {padding:14px 28px;font-size:12px;}
 
   
-  #about,#collections,#testimonials,#enquiry,#footer{padding:25px 0;}
+  #about {
+    padding: 60px 0;
+    min-height: auto;
+    background: linear-gradient(rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 0.85)), url('page3_background.png') no-repeat center center;
+    background-size: cover;
+  }
+  #about .container {
+    padding: 0 20px;
+  }
+  #collections,#testimonials,#enquiry,#footer{padding:25px 0;}
   .section-header{margin-bottom:16px;}
   .category-block{margin-bottom:30px;}
-  .about-grid{grid-template-columns:1fr;}
-  .about-img-wrap img{height:400px;}
   .about-stats {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -778,31 +1048,11 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 
   /* Why Choose Us Mobile Layout (2-column cardless grid with dashed borders) */
   .why-grid {
-    grid-template-columns: repeat(2, 1fr);
     gap: 0;
     margin-top: 15px;
   }
   .why-item {
     padding: 24px 16px;
-    border: none; /* Reset all borders */
-  }
-  .why-item:nth-child(3n+2) {
-    /* Override desktop 3-column borders */
-    border-left: none;
-    border-right: none;
-    border-top: none;
-    border-bottom: none;
-    margin: 0;
-    padding-top: 24px;
-    padding-bottom: 24px;
-  }
-  /* 2-column mobile dividers */
-  .why-item:nth-child(odd) {
-    border-right: 1px dashed rgba(212, 175, 55, 0.2);
-  }
-  .why-item:nth-child(1), .why-item:nth-child(2),
-  .why-item:nth-child(3), .why-item:nth-child(4) {
-    border-bottom: 1px dashed rgba(212, 175, 55, 0.2);
   }
   .why-item-icon {
     font-size: 32px;
@@ -826,12 +1076,26 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
   .slider-btn.next{order:3;}
   
   .footer-grid{grid-template-columns:1fr 1fr;gap:32px;}
-  .form-grid {
-    grid-template-columns: 1fr;
-    margin-top: 12px;
-    gap: 16px;
+  #enquiry {
+    padding: 60px 0;
+    min-height: auto;
   }
-  .form-deco{display:none;}
+  #enquiry .container {
+    padding: 0 20px;
+  }
+  .form-grid {
+    flex-direction: column;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 12px;
+  }
+  .form-title {
+    font-size: 22px !important;
+  }
+  .form-subtitle {
+    font-size: 12px !important;
+  }
   .gallery-grid{columns:2;}
   .testimonial-card{padding:0 16px;}
   .testi-inner {
@@ -854,25 +1118,37 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
     margin-top: 15px !important;
   }
   .form-wrap {
+    max-width: 100% !important;
     border-radius: 12px !important;
   }
   .form-wrap form {
-    padding: 24px 20px !important;
-    gap: 16px !important;
+    padding: 20px 20px !important;
+    gap: 12px !important;
     border-radius: 10px !important;
   }
   .form-group label {
-    font-size: 11px !important;
+    font-size: 10px !important;
   }
   .form-group input, .form-group select, .form-group textarea {
-    padding: 12px 14px !important;
-    font-size: 14px !important;
+    padding: 10px 12px !important;
+    font-size: 13px !important;
     border-radius: 6px !important;
   }
   .btn-submit {
-    padding: 14px 20px !important;
-    font-size: 14px !important;
+    padding: 12px 20px !important;
+    font-size: 13px !important;
     border-radius: 6px !important;
+  }
+  .enquiry-info {
+    max-width: 100% !important;
+    text-align: center;
+    padding: 0 10px;
+  }
+  .enquiry-info .gold-line {
+    margin: 15px auto !important;
+  }
+  .info-features {
+    text-align: left;
   }
   .footer-bottom p {
     font-size: 11px;
@@ -914,6 +1190,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
   .nav-cta{padding:10px 20px;font-size:11px;}
   
   .hero-title{font-size: clamp(24px, 6vw, 30px);}
+  .hero-title .title-main{white-space:normal;}
   .hero-btns{flex-direction:column;width:100%;gap:12px;}
   .btn-primary.large, .btn-outline.large{width:100%;text-align:center;display:block;box-sizing:border-box;}
   
@@ -940,15 +1217,11 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 <!-- ===== HERO ===== -->
 <section id="hero">
   <div class="hero-bg">
-    <img src="Chandeliers/chand_1.png" alt="Showlites luxury chandelier"/>
+    <img src="front_page.png" alt="Showlites luxury chandelier"/>
     <div class="hero-overlay"></div>
   </div>
-  <div class="floating-word hero-word-1">Luxury</div>
-  <div class="floating-word hero-word-2">Bespoke</div>
-  <div class="floating-word hero-word-3">Masterpiece</div>
-  <div class="floating-word hero-word-4">Grandeur</div>
-  <div class="hero-content fade-up visible">
-    <h1 class="hero-title">Masterpieces of<br><span>Illumination</span></h1>
+  <div class="hero-content">
+    <h1 class="hero-title"><span class="title-main">Masterpieces of</span><span class="title-accent">Illumination</span></h1>
     <p class="hero-sub">Transform your space with our breathtaking, handcrafted chandeliers designed to command attention and radiate absolute luxury.</p>
     <div class="hero-btns">
       <a href="#collections" class="btn-primary large">View Collections</a>
@@ -963,14 +1236,11 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 <!-- ===== ENQUIRY FORM ===== -->
 <section id="enquiry">
 <div class="container">
-<div class="section-header fade-up"><p class="section-label">Get in Touch</p><h2 class="section-heading">Get a Free Quote</h2><div class="gold-line"></div><p class="section-sub">Tell us about your space and we'll design the perfect chandelier</p></div>
 <div class="form-grid fade-up">
-<div class="form-deco">
-<img class="form-deco-img" src="Chandeliers/chand_4.png" alt="Showlites luxury installation" style="object-position: center; background: #0a0a0a;"/>
-<div class="form-quote"><p>"Light is not merely the absence of darkness — it is the art of transforming a space into an experience. At Showlites, we sculpt light."</p></div>
-</div>
 <div class="form-wrap">
 <form id="enquiry-form" novalidate>
+<h3 class="form-title">Get a Free Quote</h3>
+<p class="form-subtitle">Tell us about your space and we'll design the perfect chandelier</p>
 <div class="form-group"><label for="f-name">Full Name</label><input type="text" id="f-name" placeholder="Your full name"/></div>
 <div class="form-group"><label for="f-phone">Phone Number</label><input type="tel" id="f-phone" placeholder="10-digit mobile number" maxlength="10" inputmode="numeric"/></div>
 <div class="form-group"><label for="f-city">City / Location</label><input type="text" id="f-city" placeholder="Your city"/></div>
@@ -978,6 +1248,37 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 <div class="form-group"><label for="f-budget">Budget Range</label><select id="f-budget"><option value="">-- Select Budget --</option><option>Under ₹10,000</option><option>₹10,000 – ₹25,000</option><option>₹25,000 – ₹50,000</option><option>₹50,000 – ₹1,00,000</option><option>Above ₹1,00,000</option></select></div>
 <button type="submit" class="btn-submit">Send My Enquiry →</button>
 </form>
+</div>
+
+<div class="enquiry-info">
+  <p class="info-label">The Showlites Legacy</p>
+  <h2 class="info-heading">Sculpting Luxury,<br>Handcrafted for You</h2>
+  <div class="gold-line"></div>
+  <p class="info-desc">Since 2009, we have been crafting bespoke chandeliers that transform premium residences, hotel lobbies, and luxury spaces into luminous masterpieces.</p>
+  
+  <div class="info-features">
+    <div class="info-feature-item">
+      <i class="fa-solid fa-gem"></i>
+      <div>
+        <h4>Bespoke Design</h4>
+        <p>Custom tailored to perfectly complement your room height, style, and architectural layout.</p>
+      </div>
+    </div>
+    <div class="info-feature-item">
+      <i class="fa-solid fa-wand-magic-sparkles"></i>
+      <div>
+        <h4>French Gold & Crystals</h4>
+        <p>Built with genuine hand-cut crystals and signature French Gold metalwork for everlasting sparkle.</p>
+      </div>
+    </div>
+    <div class="info-feature-item">
+      <i class="fa-solid fa-shield-halved"></i>
+      <div>
+        <h4>Professional Care</h4>
+        <p>Enjoy complete peace of mind with expert design consultation, safe delivery, and precision installation.</p>
+      </div>
+    </div>
+  </div>
 </div>
 </div>
 </div>
@@ -989,13 +1290,15 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 <section id="about">
   <div class="container">
     <div class="about-grid fade-up">
-      <div class="about-text">
-        <p class="section-label">Who We Are</p>
-        <h2 class="section-heading">Crafting Light<br>into Art Since 2009</h2>
-        <div class="gold-line"></div>
-        <p>Showlites was born from a singular vision — to transform interior spaces into luminous masterpieces. Since 2009, we have been at the forefront of premium chandelier design, combining centuries-old craftsmanship with contemporary aesthetics to create lighting that transcends the ordinary.</p>
-        <p class="desktop-only-text">Every Showlites piece is a bespoke creation, meticulously handcrafted from the finest materials — precision-cut crystals, French Gold metalwork, Italian marble, and premium hand-blown glass. Our design consultants work closely with homeowners, architects, and interior designers across India to deliver lighting installations that are as unique as the spaces they illuminate.</p>
-        <p class="desktop-only-text">From intimate bedroom pendants to grand hotel lobby chandeliers, from elegant double-height statement pieces to functional fandeliers, Showlites delivers premium lighting across every room type — backed by our commitment to quality, timely installation, and dedicated after-sales care.</p>
+      <div class="about-spacer"></div>
+      <div class="about-content">
+        <div class="about-text">
+          <p class="section-label">Who We Are</p>
+          <h2 class="section-heading">Crafting Light<br>into Art Since 2009</h2>
+          <div class="gold-line"></div>
+          <p>Showlites was born from a singular vision — to transform interior spaces into luminous masterpieces. Since 2009, we combine centuries-old craftsmanship with contemporary design to create bespoke lighting that transcends the ordinary.</p>
+          <p>Every piece is a unique creation, handcrafted in India from the finest materials — French Gold metalwork, precision-cut crystals, Italian marble, and hand-blown glass, custom tailored to elevate your architecture.</p>
+        </div>
         <div class="about-stats">
           <div class="stat-item">
             <div class="stat-num" data-target="500">0</div>
@@ -1011,13 +1314,9 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
           </div>
         </div>
       </div>
-      <div class="about-img-wrap">
-        <a href="#enquiry" aria-label="Request a quote">
-          <img src="Chandeliers/chand_2.png" alt="Showlites artisan crafting a premium chandelier"/>
-        </a>
-      </div>
     </div>
   </div>
+</section>
 
 <!-- ===== COLLECTIONS ===== -->
 <section id="collections">
@@ -1030,6 +1329,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 </div>
 </div>
 <div id="collections-inner"></div>
+</section>
 
 <!-- ===== ICONIC BRAND PARTNERS ===== -->
 <section id="partners" class="fade-up">
@@ -1363,7 +1663,6 @@ function buildCollections() {
           }
         };
         cta.addEventListener('click', handleCta);
-        cta.addEventListener('touchstart', handleCta, { passive: false });
       }
     });
   });
