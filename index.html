@@ -102,7 +102,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 /* ===== POPULAR SEARCHES ===== */
 .static-searches {
   background: var(--bg-surface);
-  padding: 80px 0;
+  padding: 40px 0;
   border-top: 1px solid var(--border-subtle);
 }
 .search-tags-container {
@@ -134,7 +134,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 }
 
 /* ===== ABOUT SECTION ===== */
-#about{padding:60px 0;background:var(--bg-primary);}
+#about{padding:40px 0;background:var(--bg-primary);}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
 .about-text .gold-line{margin:20px 0 28px;}
 .about-text p{color:var(--text-secondary);line-height:1.8;margin-bottom:18px;font-size:16px;}
@@ -150,9 +150,9 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 .about-img-wrap::after{content:'';position:absolute;inset:-16px;border:1px solid rgba(212,175,55,0.08);border-radius:var(--radius-sm);transform:translate(8px,8px);pointer-events:none;}
 
 /* ===== COLLECTIONS SECTION ===== */
-#collections{padding:60px 0;background:linear-gradient(180deg,var(--bg-primary) 0%,#0d0b06 100%);}
+#collections{padding:40px 0;background:linear-gradient(180deg,var(--bg-primary) 0%,#0d0b06 100%);}
 #collections-inner{padding:0 5vw; max-width:100%;}
-.section-header{text-align:center;margin-bottom:60px;}
+.section-header{text-align:center;margin-bottom:30px;}
 .section-header .gold-line{margin:20px auto;}
 .category-block{margin-bottom:40px;}
 .category-title{font-family:'Playfair Display',serif;font-size:clamp(28px,3vw,38px);font-weight:700;color:var(--accent);margin-bottom:8px;}
@@ -209,12 +209,13 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 /* ===== ICONIC BRAND PARTNERS ===== */
 #partners {
   background: var(--bg-primary);
-  padding: 80px 0 60px;
+  padding: 45px 0 35px;
   border-top: 1px solid var(--border-subtle);
   text-align: center;
+  overflow: hidden; /* Prevent horizontal page scroll on edge cases */
 }
 .partners-header {
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 .partners-icon {
   font-size: 36px;
@@ -245,31 +246,35 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
   position: relative;
   width: 100%;
   overflow: hidden;
-  padding: 20px 0;
+  padding: 15px 0;
 }
 .partners-track {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 30px;
+  gap: 35px;
   flex-wrap: nowrap;
+  width: 100%;
+  max-width: 100%;
+  padding: 0 40px; /* Safety margin for edges */
 }
 .partner-logo-item {
   background: #F8F5F0;
   border: 1px solid rgba(212, 175, 55, 0.25);
-  border-radius: 8px;
-  padding: 12px 28px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+  border-radius: 12px;
+  padding: 15px 30px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 75px;
-  min-width: 170px;
-  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  height: 90px;
+  flex: 0 1 220px;
+  min-width: 150px;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 .partner-logo-item img {
-  max-height: 50px;
-  max-width: 140px;
+  max-height: 55px;
+  max-width: 100%;
   width: auto;
   height: auto;
   object-fit: contain;
@@ -277,27 +282,27 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
   transition: all 0.3s ease;
 }
 .partner-logo-item:hover {
-  transform: translateY(-4px);
+  transform: translateY(-5px);
   border-color: var(--accent);
-  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.35);
   background: #ffffff;
 }
 .partner-logo-item:hover img {
   opacity: 1;
-  transform: scale(1.04);
+  transform: scale(1.05);
 }
-@media(max-width: 1200px) {
+@media(max-width: 1150px) {
   #partners {
-    padding: 50px 0 40px;
+    padding: 35px 0 25px;
   }
   .partners-header {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
   .partners-track-wrap {
     overflow-x: auto;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
-    padding: 10px 0;
+    padding: 15px 0;
   }
   .partners-track-wrap::-webkit-scrollbar {
     display: none;
@@ -306,25 +311,134 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
     justify-content: flex-start;
     flex-wrap: nowrap;
     gap: 24px;
-    padding: 0 20px;
+    padding: 0 24px;
     width: max-content;
+  }
+  .partner-logo-item {
+    flex: 0 0 190px;
+    min-width: 190px;
+    height: 80px;
+    border-radius: 10px;
+    padding: 12px 24px;
+  }
+  .partner-logo-item img {
+    max-height: 48px;
   }
 }
 
 /* ===== WHY CHOOSE ===== */
-#why{background:var(--bg-surface);padding:60px 0;}
-#why .container{width:100%;}
-.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px;}
-.why-card{background:transparent;border:1px solid var(--border-subtle);border-radius:12px;padding:28px 20px;transition:var(--transition);display:flex;align-items:center;gap:16px;text-align:left;}
-.why-card:hover{border-color:rgba(212,175,55,0.4);background:rgba(212,175,55,0.04);}
-.why-icon{width:42px;height:42px;min-width:42px;border-radius:50%;border:1px solid var(--accent);display:flex;align-items:center;justify-content:center;background:rgba(212,175,55,0.08);transition:var(--transition);}
-.why-card:hover .why-icon{background:var(--accent);}
-.why-icon i{font-size:16px;color:var(--accent);transition:var(--transition);}
-.why-card:hover .why-icon i{color:#0A0A0A;}
-.why-card h3{font-family:'Manrope',sans-serif;font-size:15px;font-weight:600;color:var(--text-primary);margin:0;}
+#why {
+  background: var(--bg-surface);
+  padding: 50px 0 45px;
+  border-top: 1px solid var(--border-subtle);
+  position: relative;
+}
+#why .container {
+  width: 100%;
+}
+.why-header-icon {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 20px;
+  animation: floatHandshake 3s ease-in-out infinite alternate;
+}
+.why-header-stars {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 4px;
+  color: var(--accent);
+  margin-bottom: 2px;
+}
+.why-header-stars i {
+  font-size: 11px;
+}
+.why-header-stars i.large {
+  font-size: 16px;
+  transform: translateY(-2px);
+}
+.why-header-icon > i {
+  font-size: 38px;
+  color: var(--accent);
+}
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 30px;
+  row-gap: 30px;
+}
+.why-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 30px 40px;
+  transition: transform 0.3s ease;
+}
+.why-item:hover {
+  transform: translateY(-5px);
+}
+.why-item:nth-child(3n+2) {
+  border-left: 1px dashed rgba(212, 175, 55, 0.25);
+  border-right: 1px dashed rgba(212, 175, 55, 0.25);
+}
+.why-item-icon {
+  font-size: 42px;
+  color: var(--accent);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  transition: transform 0.3s ease;
+}
+.why-item:hover .why-item-icon {
+  transform: scale(1.1);
+}
+.why-item h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+@media(max-width: 992px) {
+  #why {
+    padding: 35px 0 30px;
+  }
+  .why-grid {
+    grid-template-columns: 1fr;
+    row-gap: 15px;
+    margin-top: 20px;
+  }
+  .why-item {
+    padding: 20px 24px;
+  }
+  .why-item:nth-child(3n+2) {
+    border-left: none;
+    border-right: none;
+    border-top: 1px dashed rgba(212, 175, 55, 0.15);
+    border-bottom: 1px dashed rgba(212, 175, 55, 0.15);
+    padding-top: 35px;
+    padding-bottom: 35px;
+    margin: 15px 0;
+  }
+  .why-item-icon {
+    font-size: 36px;
+    margin-bottom: 16px;
+    height: 50px;
+  }
+  .why-item h3 {
+    font-size: 18px;
+  }
+}
+
 
 /* ===== TESTIMONIALS ===== */
-#testimonials{padding:60px 0;background:linear-gradient(180deg,#0d0b06 0%,var(--bg-primary) 100%);}
+#testimonials{padding:40px 0;background:linear-gradient(180deg,#0d0b06 0%,var(--bg-primary) 100%);}
 .testimonial-carousel{position:relative;overflow:hidden;margin-top:30px;}
 .testimonial-track{display:flex;transition:transform 0.5s ease;}
 .testimonial-card{flex:0 0 100%;padding:0 80px;}
@@ -341,7 +455,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 .testi-dot.active{background:var(--accent);width:24px;border-radius:4px;}
 
 /* ===== FORM SECTION ===== */
-#enquiry{padding:60px 0;background:var(--bg-surface);}
+#enquiry{padding:40px 0;background:var(--bg-surface);}
 .form-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:40px;align-items:start;margin-top:30px;}
 .form-deco{position:relative;}
 .form-deco-img{width:100%;height:500px;object-fit:cover;border-radius:var(--radius-sm);box-shadow:0 0 60px rgba(212,175,55,0.15);}
@@ -379,7 +493,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 .form-success p{color:var(--text-secondary);line-height:1.7;margin-bottom:24px;}
 
 /* ===== FOOTER ===== */
-#footer{background:var(--bg-primary);border-top:1px solid var(--border-subtle);padding:60px 0 0;}
+#footer{background:var(--bg-primary);border-top:1px solid var(--border-subtle);padding:40px 0 0;}
 .footer-grid{display:grid;grid-template-columns:1.5fr 1.2fr;gap:60px;margin-bottom:32px; justify-content: space-between;}
 .footer-logo{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--accent);margin-bottom:20px;}
 .footer-tagline{font-size:16px;color:var(--text-muted);line-height:1.8;margin-bottom:24px;}
@@ -392,7 +506,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 .footer-col ul li a:hover{color:var(--accent);}
 .footer-contact-item{display:flex;gap:12px;align-items:flex-start;margin-bottom:14px;font-size:15px;color:var(--text-muted);line-height:1.6;}
 .footer-contact-item i{color:var(--accent);margin-top:3px;flex-shrink:0;font-size:16px;}
-.footer-bottom{border-top:1px solid var(--border-subtle);padding:16px 0;background:transparent;}
+.footer-bottom{border-top:1px solid var(--border-subtle);padding:10px 0;background:transparent;}
 .footer-bottom .container{display:flex;justify-content:center;}
 .footer-bottom p{font-size:14px;font-weight:500;letter-spacing:0.08em;color:#ffffff;margin:0;}
 
@@ -428,6 +542,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
   .why-grid{grid-template-columns:repeat(2,1fr);}
   .footer-grid{grid-template-columns:1fr 1fr;gap:40px;}
   .gallery-grid{columns:3;}
+  .desktop-only-text{display:none !important;}
 }
 @media(max-width:768px){
   .nav-logo{font-size:24px;}
@@ -453,8 +568,8 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
   .btn-primary.large, .btn-outline.large {padding:14px 28px;font-size:12px;}
 
   
-  #about,#collections,#testimonials,#enquiry,#footer{padding:40px 0;}
-  .section-header{margin-bottom:24px;}
+  #about,#collections,#testimonials,#enquiry,#footer{padding:25px 0;}
+  .section-header{margin-bottom:16px;}
   .category-block{margin-bottom:30px;}
   .about-grid{grid-template-columns:1fr;}
   .about-img-wrap img{height:400px;}
@@ -473,53 +588,67 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
     letter-spacing: 0.05em;
   }
   
-  /* Why Showlites Section: Bullets Instead of Cards */
-  .why-grid {
-    grid-template-columns: 1fr;
+  /* Brand Partners Mobile Layout (2 rows of 3 logos) */
+  .partners-track-wrap {
+    overflow: hidden;
+    padding: 10px 0;
+  }
+  .partners-track {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 12px;
-    margin-top: 20px;
+    padding: 0 16px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
-  .why-card {
-    background: transparent;
-    border: none;
-    box-shadow: none;
-    padding: 8px 0;
-    min-height: auto;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    text-align: left;
+  .partner-logo-item {
+    flex: unset;
+    min-width: unset;
+    height: 60px;
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.25);
   }
-  .why-card::before {
-    display: none;
+  .partner-logo-item img {
+    max-height: 28px;
   }
-  .why-card:hover {
-    transform: none;
-    box-shadow: none;
-    border-color: transparent;
+
+  /* Why Choose Us Mobile Layout (2-column cardless grid with dashed borders) */
+  .why-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    margin-top: 15px;
   }
-  .why-icon {
-    width: 20px;
-    height: 20px;
-    border: none;
-    background: transparent;
-    margin-bottom: 0;
-    margin-right: 12px;
-    border-radius: 0;
-    flex-shrink: 0;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+  .why-item {
+    padding: 24px 16px;
+    border: none; /* Reset all borders */
   }
-  .why-icon i {
-    font-size: 14px;
-    color: var(--accent);
+  .why-item:nth-child(3n+2) {
+    /* Override desktop 3-column borders */
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+    margin: 0;
+    padding-top: 24px;
+    padding-bottom: 24px;
   }
-  .why-card h3 {
+  /* 2-column mobile dividers */
+  .why-item:nth-child(odd) {
+    border-right: 1px dashed rgba(212, 175, 55, 0.2);
+  }
+  .why-item:nth-child(1), .why-item:nth-child(2),
+  .why-item:nth-child(3), .why-item:nth-child(4) {
+    border-bottom: 1px dashed rgba(212, 175, 55, 0.2);
+  }
+  .why-item-icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+    height: 48px;
+  }
+  .why-item h3 {
     font-size: 15px;
-    font-weight: 500;
-    color: var(--text-primary);
-    font-family: 'Manrope', sans-serif;
   }
   
   /* Category Block / Sliders on Mobile */
@@ -590,13 +719,17 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
     letter-spacing: 0.04em;
   }
   #footer {
-    padding-bottom: 70px;
+    padding-bottom: 56px;
   }
   /* hide desktop floating buttons on mobile */
   .floating-btns{display:none;}
+  .desktop-only-text{display:none;}
   /* mobile fixed bottom CTA bar */
   .mobile-cta-bar{display:flex !important;}
   /* popular searches smaller on mobile */
+  .static-searches {
+    padding: 25px 0;
+  }
   .search-tags-container {
     display: flex;
     flex-wrap: wrap;
@@ -696,8 +829,8 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
         <h2 class="section-heading">Crafting Light<br>into Art Since 2009</h2>
         <div class="gold-line"></div>
         <p>Showlites was born from a singular vision — to transform interior spaces into luminous masterpieces. Since 2009, we have been at the forefront of premium chandelier design, combining centuries-old craftsmanship with contemporary aesthetics to create lighting that transcends the ordinary.</p>
-        <p>Every Showlites piece is a bespoke creation, meticulously handcrafted from the finest materials — precision-cut crystals, French Gold metalwork, Italian marble, and premium hand-blown glass. Our design consultants work closely with homeowners, architects, and interior designers across India to deliver lighting installations that are as unique as the spaces they illuminate.</p>
-        <p>From intimate bedroom pendants to grand hotel lobby chandeliers, from elegant double-height statement pieces to functional fandeliers, Showlites delivers premium lighting across every room type — backed by our commitment to quality, timely installation, and dedicated after-sales care.</p>
+        <p class="desktop-only-text">Every Showlites piece is a bespoke creation, meticulously handcrafted from the finest materials — precision-cut crystals, French Gold metalwork, Italian marble, and premium hand-blown glass. Our design consultants work closely with homeowners, architects, and interior designers across India to deliver lighting installations that are as unique as the spaces they illuminate.</p>
+        <p class="desktop-only-text">From intimate bedroom pendants to grand hotel lobby chandeliers, from elegant double-height statement pieces to functional fandeliers, Showlites delivers premium lighting across every room type — backed by our commitment to quality, timely installation, and dedicated after-sales care.</p>
         <div class="about-stats">
           <div class="stat-item">
             <div class="stat-num" data-target="500">0</div>
@@ -743,26 +876,26 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
       <h2 class="partners-heading">Iconic Brand Partners</h2>
       <p class="partners-sub">From renowned architects to luxury interiors, our creations light up spaces that embody elegance and excellence.</p>
     </div>
-    <div class="partners-track-wrap">
-      <div class="partners-track">
-        <div class="partner-logo-item">
-          <img src="brands/trix.png" alt="TRIX Logo" />
-        </div>
-        <div class="partner-logo-item">
-          <img src="brands/ledos.png" alt="Ledos Logo" />
-        </div>
-        <div class="partner-logo-item">
-          <img src="brands/ledlum.png" alt="LED Lum Logo" />
-        </div>
-        <div class="partner-logo-item">
-          <img src="brands/ledwell.png" alt="LEDwell Logo" />
-        </div>
-        <div class="partner-logo-item">
-          <img src="brands/n_logo.png" alt="N Logo" />
-        </div>
-        <div class="partner-logo-item">
-          <img src="brands/svetlo.png" alt="Světlo Logo" />
-        </div>
+  </div>
+  <div class="partners-track-wrap">
+    <div class="partners-track">
+      <div class="partner-logo-item">
+        <img src="brands/trix.png" alt="TRIX Logo" />
+      </div>
+      <div class="partner-logo-item">
+        <img src="brands/ledos.png" alt="Ledos Logo" />
+      </div>
+      <div class="partner-logo-item">
+        <img src="brands/ledlum.png" alt="LED Lum Logo" />
+      </div>
+      <div class="partner-logo-item">
+        <img src="brands/ledwell.png" alt="LEDwell Logo" />
+      </div>
+      <div class="partner-logo-item">
+        <img src="brands/n_logo.png" alt="N Logo" />
+      </div>
+      <div class="partner-logo-item">
+        <img src="brands/svetlo.png" alt="Světlo Logo" />
       </div>
     </div>
   </div>
@@ -772,20 +905,54 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 <section id="why">
 <div class="container">
 <div class="section-header fade-up">
-  <div class="why-header-icon" style="font-size: 36px; color: var(--accent); margin-bottom: 16px; display: inline-block; animation: floatHandshake 3s ease-in-out infinite alternate;">
+  <div class="why-header-icon">
+    <div class="why-header-stars">
+      <i class="fa-regular fa-star"></i>
+      <i class="fa-regular fa-star large"></i>
+      <i class="fa-regular fa-star"></i>
+    </div>
     <i class="fa-regular fa-thumbs-up"></i>
   </div>
   <h2 class="section-heading">Why Choose Us</h2>
-  <div class="gold-line"></div>
   <p class="section-sub" style="max-width: 800px; margin: 12px auto 0;">Experience the perfect blend of style, innovation and quality. We bring you lighting solutions that elevate every space crafted with precision, designed for impact and delivered with exceptional service</p>
 </div>
 <div class="why-grid">
-  <div class="why-card fade-up"><div class="why-icon"><i class="fa-solid fa-boxes-stacked"></i></div><h3>Range of Products</h3></div>
-  <div class="why-card fade-up" style="transition-delay:.1s"><div class="why-icon"><i class="fa-solid fa-sliders"></i></div><h3>Customization</h3></div>
-  <div class="why-card fade-up" style="transition-delay:.2s"><div class="why-icon"><i class="fa-solid fa-layer-group"></i></div><h3>Own material</h3></div>
-  <div class="why-card fade-up" style="transition-delay:.3s"><div class="why-icon"><i class="fa-solid fa-compass"></i></div><h3>Expert Guidance</h3></div>
-  <div class="why-card fade-up" style="transition-delay:.4s"><div class="why-icon"><i class="fa-solid fa-award"></i></div><h3>Premium Quality</h3></div>
-  <div class="why-card fade-up" style="transition-delay:.5s"><div class="why-icon"><i class="fa-solid fa-truck-shield"></i></div><h3>Safe Delivery</h3></div>
+  <div class="why-item fade-up">
+    <div class="why-item-icon">
+      <i class="fa-solid fa-dolly"></i>
+    </div>
+    <h3>Range of Products</h3>
+  </div>
+  <div class="why-item fade-up" style="transition-delay:.1s">
+    <div class="why-item-icon">
+      <i class="fa-solid fa-sliders"></i>
+    </div>
+    <h3>Customization</h3>
+  </div>
+  <div class="why-item fade-up" style="transition-delay:.2s">
+    <div class="why-item-icon">
+      <i class="fa-solid fa-layer-group"></i>
+    </div>
+    <h3>Own material</h3>
+  </div>
+  <div class="why-item fade-up" style="transition-delay:.3s">
+    <div class="why-item-icon">
+      <i class="fa-solid fa-signs-post"></i>
+    </div>
+    <h3>Expert Guidance</h3>
+  </div>
+  <div class="why-item fade-up" style="transition-delay:.4s">
+    <div class="why-item-icon">
+      <i class="fa-solid fa-award"></i>
+    </div>
+    <h3>Premium Quality</h3>
+  </div>
+  <div class="why-item fade-up" style="transition-delay:.5s">
+    <div class="why-item-icon">
+      <i class="fa-solid fa-truck-fast"></i>
+    </div>
+    <h3>Safe Delivery</h3>
+  </div>
 </div>
 </div>
 </section>
