@@ -764,16 +764,17 @@ function buildCollections() {
           } else {
             card.classList.add('flipped');
             clearTimeout(timer);
+            // The animation takes 0.7s (700ms), so we wait 700ms + 2000ms = 2700ms total
             timer = setTimeout(() => {
               card.classList.remove('flipped');
-            }, 2000);
+            }, 2700);
           }
         }
       });
       
       const cta = card.querySelector('.flip-back-cta');
       if (cta) {
-        cta.addEventListener('click', function(e) {
+        const handleCta = function(e) {
           e.preventDefault();
           e.stopPropagation();
           
@@ -792,7 +793,9 @@ function buildCollections() {
               nameInput.focus();
             }, 800);
           }
-        });
+        };
+        cta.addEventListener('click', handleCta);
+        cta.addEventListener('touchstart', handleCta, { passive: false });
       }
     });
   });
