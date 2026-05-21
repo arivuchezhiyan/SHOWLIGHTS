@@ -9,7 +9,7 @@
 <meta name="description" content="Showlites crafts bespoke chandeliers for homes, hotels & beyond. Premium ceiling lights, chandeliers, double-height pendants, fandeliers & multilayer lights across India."/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700&family=Dancing+Script:wght@500;700&display=swap');
 
 /* ===== CSS VARIABLES ===== */
 :root {
@@ -204,6 +204,112 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 .flip-back-cta{flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;gap:6px;background:var(--accent);color:#0A0A0A;padding:12px 20px;border-radius:var(--radius-sm);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-top:12px;transition:var(--transition);}
 .flip-back-cta:hover{background:var(--accent-bright);}
 .back-glitter::before{content:'';position:absolute;width:2px;height:2px;background:rgba(255,215,0,0.8);border-radius:50%;box-shadow:25px 20px 0 rgba(255,215,0,0.7),70px 60px 0 rgba(255,255,255,0.5),110px 30px 0 rgba(255,215,0,0.6),150px 90px 0 rgba(255,255,255,0.4),190px 50px 0 rgba(255,215,0,0.7),230px 120px 0 rgba(255,255,255,0.5),265px 80px 0 rgba(255,215,0,0.6),285px 150px 0 rgba(255,255,255,0.5),45px 190px 0 rgba(255,215,0,0.4),115px 250px 0 rgba(255,255,255,0.5),195px 290px 0 rgba(255,215,0,0.6),245px 340px 0 rgba(255,255,255,0.5),275px 380px 0 rgba(255,215,0,0.7);animation:glitterAnim 2.5s ease-in-out infinite alternate;}
+
+
+/* ===== ICONIC BRAND PARTNERS ===== */
+#partners {
+  background: var(--bg-primary);
+  padding: 80px 0 60px;
+  border-top: 1px solid var(--border-subtle);
+  text-align: center;
+}
+.partners-header {
+  margin-bottom: 50px;
+}
+.partners-icon {
+  font-size: 36px;
+  color: var(--accent);
+  margin-bottom: 16px;
+  display: inline-block;
+  animation: floatHandshake 3s ease-in-out infinite alternate;
+}
+@keyframes floatHandshake {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-4px); }
+}
+.partners-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 4vw, 38px);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+.partners-sub {
+  color: var(--text-secondary);
+  font-size: 15px;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+.partners-track-wrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 20px 0;
+}
+.partners-track {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+.partner-logo-item {
+  background: #F8F5F0;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 8px;
+  padding: 10px 24px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 65px;
+  min-width: 150px;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.partner-logo-item img {
+  max-height: 42px;
+  max-width: 130px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  opacity: 0.85;
+  transition: all 0.3s ease;
+}
+.partner-logo-item:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+  background: #ffffff;
+}
+.partner-logo-item:hover img {
+  opacity: 1;
+  transform: scale(1.04);
+}
+@media(max-width: 768px) {
+  #partners {
+    padding: 50px 0 40px;
+  }
+  .partners-header {
+    margin-bottom: 30px;
+  }
+  .partners-track-wrap {
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    padding: 10px 0;
+  }
+  .partners-track-wrap::-webkit-scrollbar {
+    display: none;
+  }
+  .partners-track {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 40px;
+    padding: 0 20px;
+    width: max-content;
+  }
+}
 
 /* ===== WHY CHOOSE ===== */
 #why{background:var(--bg-surface);padding:60px 0;}
@@ -626,23 +732,60 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 </div>
 </div>
 <div id="collections-inner"></div>
+
+<!-- ===== ICONIC BRAND PARTNERS ===== -->
+<section id="partners" class="fade-up">
+  <div class="container">
+    <div class="partners-header">
+      <div class="partners-icon">
+        <i class="fa-regular fa-handshake"></i>
+      </div>
+      <h2 class="partners-heading">Iconic Brand Partners</h2>
+      <p class="partners-sub">From renowned architects to luxury interiors, our creations light up spaces that embody elegance and excellence.</p>
+    </div>
+    <div class="partners-track-wrap">
+      <div class="partners-track">
+        <div class="partner-logo-item">
+          <img src="brands/trix.png" alt="TRIX Logo" />
+        </div>
+        <div class="partner-logo-item">
+          <img src="brands/ledos.png" alt="Ledos Logo" />
+        </div>
+        <div class="partner-logo-item">
+          <img src="brands/ledlum.png" alt="LED Lum Logo" />
+        </div>
+        <div class="partner-logo-item">
+          <img src="brands/ledwell.png" alt="LEDwell Logo" />
+        </div>
+        <div class="partner-logo-item">
+          <img src="brands/n_logo.png" alt="N Logo" />
+        </div>
+        <div class="partner-logo-item">
+          <img src="brands/svetlo.png" alt="Světlo Logo" />
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ===== WHY SHOWLITES ===== -->
 <section id="why">
 <div class="container">
 <div class="section-header fade-up">
-<p class="section-label">Why Choose Us</p>
-<h2 class="section-heading">Why Showlites</h2>
-<div class="gold-line"></div>
+  <div class="why-header-icon" style="font-size: 36px; color: var(--accent); margin-bottom: 16px; display: inline-block; animation: floatHandshake 3s ease-in-out infinite alternate;">
+    <i class="fa-regular fa-thumbs-up"></i>
+  </div>
+  <h2 class="section-heading">Why Choose Us</h2>
+  <div class="gold-line"></div>
+  <p class="section-sub" style="max-width: 800px; margin: 12px auto 0;">Experience the perfect blend of style, innovation and quality. We bring you lighting solutions that elevate every space crafted with precision, designed for impact and delivered with exceptional service</p>
 </div>
 <div class="why-grid">
-<div class="why-card fade-up"><div class="why-icon"><i class="fa-solid fa-pencil-ruler"></i></div><h3>Custom Bespoke Designs</h3></div>
-<div class="why-card fade-up" style="transition-delay:.1s"><div class="why-icon"><i class="fa-solid fa-gem"></i></div><h3>Premium Quality Materials</h3></div>
-<div class="why-card fade-up" style="transition-delay:.2s"><div class="why-icon"><i class="fa-solid fa-comments"></i></div><h3>Free Design Consultation</h3></div>
-<div class="why-card fade-up" style="transition-delay:.3s"><div class="why-icon"><i class="fa-solid fa-truck"></i></div><h3>Pan-India Delivery &amp; Install</h3></div>
-<div class="why-card fade-up" style="transition-delay:.4s"><div class="why-icon"><i class="fa-solid fa-shield-halved"></i></div><h3>2-Year Product Warranty</h3></div>
-<div class="why-card fade-up" style="transition-delay:.5s"><div class="why-icon"><i class="fa-solid fa-headset"></i></div><h3>Dedicated After-Sales Support</h3></div>
+  <div class="why-card fade-up"><div class="why-icon"><i class="fa-solid fa-boxes-stacked"></i></div><h3>Range of Products</h3></div>
+  <div class="why-card fade-up" style="transition-delay:.1s"><div class="why-icon"><i class="fa-solid fa-sliders"></i></div><h3>Customization</h3></div>
+  <div class="why-card fade-up" style="transition-delay:.2s"><div class="why-icon"><i class="fa-solid fa-layer-group"></i></div><h3>Own material</h3></div>
+  <div class="why-card fade-up" style="transition-delay:.3s"><div class="why-icon"><i class="fa-solid fa-compass"></i></div><h3>Expert Guidance</h3></div>
+  <div class="why-card fade-up" style="transition-delay:.4s"><div class="why-icon"><i class="fa-solid fa-award"></i></div><h3>Premium Quality</h3></div>
+  <div class="why-card fade-up" style="transition-delay:.5s"><div class="why-icon"><i class="fa-solid fa-truck-shield"></i></div><h3>Safe Delivery</h3></div>
 </div>
 </div>
 </section>
